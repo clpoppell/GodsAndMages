@@ -7,24 +7,77 @@
     tools:context="com.tadbolmont.godsandmages.MainActivity">
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="303dp"
+        android:id="@+id/settings"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:text="Button"
-        tools:layout_editor_absoluteY="169dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Settings"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.52" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="303dp"
+        android:id="@+id/chapters"
+        android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:text="@string/button_chapters"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="65dp" />
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/settings" />
+
+    <Button
+        android:id="@+id/loadGame"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Continue"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/chapters" />
+
+    <Button
+        android:id="@+id/newGame"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="New Game"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/loadGame" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/newGame"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/alert_light_frame" />
 </android.support.constraint.ConstraintLayout>
