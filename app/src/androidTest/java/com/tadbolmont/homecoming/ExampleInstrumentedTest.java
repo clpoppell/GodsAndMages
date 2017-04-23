@@ -1,4 +1,4 @@
-package com.tadbolmont.godsandmages;
+package com.tadbolmont.homecoming;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.tadbolmont.godsandmages", appContext.getPackageName());
+        assertEquals("com.tadbolmont.homecoming", appContext.getPackageName());
     }
 }

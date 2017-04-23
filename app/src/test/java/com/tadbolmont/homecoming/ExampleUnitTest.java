@@ -1,4 +1,4 @@
-package com.tadbolmont.godsandmages;
+package com.tadbolmont.homecoming;
 
 import org.junit.Test;
 
