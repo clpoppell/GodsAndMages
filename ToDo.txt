@@ -1,0 +1,45 @@
+Database Schema
+	Table Saves
+		save id (key)
+		name
+		race
+		class
+		job
+		
+	Table PlayerStats
+		save id
+		maxHP
+		strength
+		stamina
+		agility
+		speed
+		
+	Table PlayerStatus
+		save id
+		location id
+		exp
+		(current status)
+		currentHP
+		(status effects)
+		
+		
+	Table Player Equipment
+		save id
+		weapon id
+		armor id
+		accessory1 id
+		accessory2 id
+		
+	Table Items
+		save id
+		(items)
+		
+	Table Abilities
+		(abilities)
+		
+	Table Quests
+		save id
+		quest id
+		completed flag
+		
+		(npc relations)

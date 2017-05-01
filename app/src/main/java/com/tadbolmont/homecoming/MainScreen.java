@@ -1,11 +1,10 @@
 package com.tadbolmont.homecoming;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class MainScreen extends AppCompatActivity{
+public class MainScreen extends BaseActivity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){

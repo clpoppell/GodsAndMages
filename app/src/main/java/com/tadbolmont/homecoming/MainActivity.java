@@ -1,12 +1,12 @@
 package com.tadbolmont.homecoming;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity{
-
+public class MainActivity extends BaseActivity{
+	public static final String EXTRA_MESSAGE= "com.tadbolmont.homecoming.MESSAGE";
+	
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -14,12 +14,15 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void newGame(View view){
-		Intent intent= new Intent(this, CreateCharacter.class);
+		Intent intent= new Intent(this, SavedGamesDisplay.class);
+		intent.putExtra(EXTRA_MESSAGE, "Select Save File");
 		startActivity(intent);
     }
     
     public void loadGame(View view){
-		
+		Intent intent= new Intent(this, SavedGamesDisplay.class);
+		intent.putExtra(EXTRA_MESSAGE, "Select Saved Game");
+		startActivity(intent);
 	}
 	
 	public void chaptersScreen(View view){
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity{
 	}
 	
 	public void gameSettings(View view){
-		
+		Intent intent= new Intent(this, SettingsScreen.class);
+		startActivity(intent);
 	}
 }

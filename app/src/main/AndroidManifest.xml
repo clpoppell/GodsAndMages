@@ -19,15 +19,24 @@
 		</activity>
 		<activity
 			android:name=".CreateCharacter"
-			android:parentActivityName=".MainActivity"
+			android:parentActivityName=".SavedGamesDisplay"
 			tools:targetApi="jelly_bean">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
+				android:value=".SavedGamesDisplay"/>
+		</activity>
+		<activity
+			android:name=".MainScreen">
+		</activity>
+		<activity
+			android:name=".SettingsScreen">
+		</activity>
+		<activity
+			android:name=".SavedGamesDisplay"
+			android:parentActivityName=".MainActivity">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
 				android:value=".MainActivity"/>
-		</activity>
-		<activity android:name=".MainScreen">
-		</activity>
-		<activity android:name=".SettingsScreen">
 		</activity>
 	</application>
 

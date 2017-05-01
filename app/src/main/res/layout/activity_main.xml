@@ -10,10 +10,7 @@
 		android:id="@+id/settings"
 		style="@style/Widget.AppCompat.Button.Colored"
 		android:layout_width="0dp"
-		android:layout_height="70dp"
-		android:layout_marginBottom="8dp"
-		android:layout_marginLeft="16dp"
-		android:layout_marginRight="16dp"
+		android:layout_height="0dp"
 		android:background="@color/colorPrimaryDark"
 		android:onClick="gameSettings"
 		android:text="Settings"
@@ -21,17 +18,16 @@
 		android:visibility="visible"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintHorizontal_bias="0.0"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"/>
+		app:layout_constraintLeft_toLeftOf="@+id/chapters"
+		app:layout_constraintRight_toRightOf="@+id/chapters"
+		app:layout_constraintTop_toBottomOf="@+id/chapters"
+		android:layout_marginBottom="8dp"/>
 	
 	<Button
 		android:id="@+id/chapters"
 		style="@style/Widget.AppCompat.Button.Colored"
 		android:layout_width="0dp"
-		android:layout_height="70dp"
-		android:layout_marginBottom="8dp"
-		android:layout_marginLeft="16dp"
-		android:layout_marginRight="16dp"
+		android:layout_height="0dp"
 		android:background="@color/colorPrimaryDark"
 		android:onClick="chaptersScreen"
 		android:text="@string/button_chapters"
@@ -39,17 +35,16 @@
 		android:visibility="visible"
 		app:layout_constraintBottom_toTopOf="@+id/settings"
 		app:layout_constraintHorizontal_bias="0.0"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"/>
+		app:layout_constraintLeft_toLeftOf="@+id/loadGame"
+		app:layout_constraintRight_toRightOf="@+id/loadGame"
+		app:layout_constraintTop_toBottomOf="@+id/loadGame"
+		android:layout_marginBottom="8dp"/>
 	
 	<Button
 		android:id="@+id/loadGame"
 		style="@style/Widget.AppCompat.Button.Colored"
 		android:layout_width="0dp"
-		android:layout_height="70dp"
-		android:layout_marginBottom="8dp"
-		android:layout_marginLeft="16dp"
-		android:layout_marginRight="16dp"
+		android:layout_height="0dp"
 		android:background="@color/colorPrimaryDark"
 		android:onClick="loadGame"
 		android:text="Continue"
@@ -57,18 +52,17 @@
 		android:visibility="visible"
 		app:layout_constraintBottom_toTopOf="@+id/chapters"
 		app:layout_constraintHorizontal_bias="0.0"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintVertical_chainStyle="spread_inside"/>
+		app:layout_constraintLeft_toLeftOf="@+id/newGame"
+		app:layout_constraintRight_toRightOf="@+id/newGame"
+		app:layout_constraintVertical_chainStyle="spread_inside"
+		app:layout_constraintTop_toBottomOf="@+id/newGame"
+		android:layout_marginBottom="8dp"/>
 	
 	<Button
 		android:id="@+id/newGame"
 		style="@style/Widget.AppCompat.Button.Colored"
 		android:layout_width="0dp"
-		android:layout_height="70dp"
-		android:layout_marginBottom="8dp"
-		android:layout_marginLeft="16dp"
-		android:layout_marginRight="16dp"
+		android:layout_height="0dp"
 		android:background="@color/colorPrimaryDark"
 		android:onClick="newGame"
 		android:text="New Game"
@@ -76,25 +70,28 @@
 		android:visibility="visible"
 		app:layout_constraintBottom_toTopOf="@+id/loadGame"
 		app:layout_constraintHorizontal_bias="0.0"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintVertical_chainStyle="packed" />
+		app:layout_constraintLeft_toLeftOf="@+id/titleImage"
+		app:layout_constraintRight_toRightOf="@+id/titleImage"
+		app:layout_constraintVertical_chainStyle="packed"
+		app:layout_constraintTop_toBottomOf="@+id/titleImage"
+		android:layout_marginBottom="8dp"/>
 	
 	<ImageView
 		android:id="@+id/titleImage"
 		android:layout_width="0dp"
 		android:layout_height="0dp"
-		android:layout_marginBottom="8dp"
 		android:layout_marginLeft="8dp"
 		android:layout_marginRight="8dp"
-		android:layout_marginTop="8dp"
 		android:scaleType="fitCenter"
 		android:visibility="visible"
 		app:layout_constraintBottom_toTopOf="@+id/newGame"
-		app:layout_constraintHorizontal_bias="1.0"
 		app:layout_constraintLeft_toLeftOf="parent"
 		app:layout_constraintRight_toRightOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.0"
-		app:srcCompat="@drawable/tadbolmont"/>
+		app:srcCompat="@drawable/tadbolmont"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="16dp"
+		android:layout_marginBottom="16dp"
+		android:layout_marginTop="8dp"
+		app:layout_constraintDimensionRatio="h,16:9"/>
 </android.support.constraint.ConstraintLayout>

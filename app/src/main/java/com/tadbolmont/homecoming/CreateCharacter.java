@@ -1,7 +1,6 @@
 package com.tadbolmont.homecoming;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class CreateCharacter extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class CreateCharacter extends BaseActivity implements AdapterView.OnItemSelectedListener{
 	public static final String EXTRA_MESSAGE= "com.tadbolmont.homecoming.MESSAGE";
 	
 	Spinner raceSpinner;
