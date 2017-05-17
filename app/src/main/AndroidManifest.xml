@@ -4,6 +4,7 @@
 		  package="com.tadbolmont.homecoming">
 	
 	<application
+		android:name="gods_and_mages_engine.App"
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
@@ -19,17 +20,16 @@
 		</activity>
 		<activity
 			android:name=".CreateCharacter"
-			android:parentActivityName=".SavedGamesDisplay"
 			tools:targetApi="jelly_bean">
+		</activity>
+		<activity
+			android:name=".MainScreen"
+			android:parentActivityName=".MainActivity">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
-				android:value=".SavedGamesDisplay"/>
+				android:value=".MainActivity"/>
 		</activity>
-		<activity
-			android:name=".MainScreen">
-		</activity>
-		<activity
-			android:name=".SettingsScreen">
+		<activity android:name=".SettingsScreen">
 		</activity>
 		<activity
 			android:name=".SavedGamesDisplay"
@@ -37,6 +37,26 @@
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
 				android:value=".MainActivity"/>
+		</activity>
+		<activity
+			android:name=".ManageDataActivity"
+			android:parentActivityName=".SettingsScreen">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+			</intent-filter>
+			
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value=".SettingsScreen"/>
+		</activity>
+		<activity
+			android:name=".GameActivity"
+			android:label="@string/title_activity_game"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="com.tadbolmont.homecoming.MainActivity"/>
 		</activity>
 	</application>
 

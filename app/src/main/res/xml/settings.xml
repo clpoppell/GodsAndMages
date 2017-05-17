@@ -10,8 +10,14 @@
 		android:switchTextOn="@string/theme_dark"
 		android:title="@string/title_theme"
 		android:showText="true"/>
+	<Preference
+		android:title="@string/title_delete">
+		<intent
+			android:action="android.intent.action.VIEW"
+			android:targetPackage="com.tadbolmont.homecoming"
+			android:targetClass="com.tadbolmont.homecoming.ManageDataActivity"/>
+	</Preference>
 	<com.tadbolmont.homecoming.AboutDialog
 		android:title="@string/title_about"
-		
 		/>
 </PreferenceScreen>

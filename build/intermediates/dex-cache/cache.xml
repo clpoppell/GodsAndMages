@@ -3,21 +3,39 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Lee\AndroidStudioProjects\Homecoming\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="451627cc5e3eddee32b3096cb50f3050b64bf3ed">
-        <dex dex="C:\Users\Lee\AndroidStudioProjects\Homecoming\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0fd2699723aa5ebe70de69cbdded9d9f5b1c5c48\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Lee\AndroidStudioProjects\Homecoming\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
         <dex dex="C:\Users\Lee\AndroidStudioProjects\Homecoming\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_bfb73d81c36639b7ad7c8e1587ac76b50ff6fd1d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Lee\AndroidStudioProjects\Homecoming\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8e88fa84a55d9b7d10d43e2a58dfaddca6ea40a1">
+        <dex dex="C:\Users\Lee\AndroidStudioProjects\Homecoming\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0fd2699723aa5ebe70de69cbdded9d9f5b1c5c48\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Lee\.gradle\caches\modules-2\files-2.1\javax.annotation\javax.annotation-api\1.2\479c1e06db31c432330183f5cae684163f186146\javax.annotation-api-1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="479c1e06db31c432330183f5cae684163f186146">
+        <dex dex="C:\Users\Lee\AndroidStudioProjects\Homecoming\app\build\intermediates\transforms\dex\debug\folders\1000\10\javax.annotation-api-1.2_52bacd635c484fe695852c11294174595b225676\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Lee\.gradle\caches\modules-2\files-2.1\javax.annotation\javax.annotation-api\1.2\479c1e06db31c432330183f5cae684163f186146\javax.annotation-api-1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="479c1e06db31c432330183f5cae684163f186146">
+        <dex dex="C:\Users\Lee\AndroidStudioProjects\Homecoming\app\build\intermediates\pre-dexed\debug\javax.annotation-api-1.2_52bacd635c484fe695852c11294174595b225676.jar" />
     </item>
 
 </items>

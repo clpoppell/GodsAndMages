@@ -11,12 +11,12 @@ public final class SaveGameContract{
 		Each row will hold the info for a single character
 		This table is accessed at character creation and save game loading only
 		*/
-		public static String SAVES_TABLE= "saves";
-		public static final String COLUMN_SAVE_ID= "save_id";
-		public static final String COLUMN_NAME= "name";
-		public static final String COLUMN_RACE= "race";
-		public static final String COLUMN_CLASS= "class";
-		public static final String COLUMN_JOB= "job";
+		public static final String SAVES_TABLE= "saves";
+		public static final String SAVES_COLUMN_SAVE_ID= "save_id";
+		public static final String SAVES_COLUMN_NAME= "name";
+		public static final String SAVES_COLUMN_RACE= "race";
+		public static final String SAVES_COLUMN_CLASS= "class";
+		public static final String SAVES_COLUMN_JOB= "job";
 	}
 	
 	public static class StatsEntry{
@@ -26,14 +26,14 @@ public final class SaveGameContract{
 		This table will be accessed at character creation to add or overwrite a row,
 			at save game loading to instantiate the character, and at level-up to update the data
 		*/
-		public static String STATS_TABLE= "stats";
-		public static final String COLUMN_SAVE_ID= "save_id";
-		public static final String COLUMN_MAXHP= "maxHP";
-		public static final String COLUMN_STRENGTH= "strength";
-		public static final String COLUMN_STAMINA= "stamina";
-		public static final String COLUMN_AGILITY= "agility";
-		public static final String COLUMN_SPEED= "speed";
+		public static final String STATS_TABLE= "stats";
+		public static final String STATS_COLUMN_SAVE_ID= "save_id";
+		public static final String STATS_COLUMN_MAXHP= "maxHP";
+		public static final String STATS_COLUMN_STRENGTH= "str";
+		public static final String STATS_COLUMN_STAMINA= "sta";
+		public static final String STATS_COLUMN_AGILITY= "agi";
+		public static final String STATS_COLUMN_SPEED= "speed";
 	}
 	
-	+
+	
 }

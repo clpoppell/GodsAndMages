@@ -1,13 +1,29 @@
+Update Database
+Change onUpgrade method in SaveGameDBHelper
+Fix issue with going back to SavedGamesDisplay *optional
+Fix issue with selecting empty save file on load game
+Prevent filled save file from going to CreateCharacter
+Add Up Button in SettingsScreen *optional
+Implement delete all save data function
+Assign abilities to characteristics
+Assign scores to races and classes
+Implement help function for character creation
+Fix color changing
+		
+SaveGameDBHelper dbHelper= new SaveGameDBHelper(this);
+		dbHelper.refreshDatabase();
+		dbHelper.close();
+
 Database Schema
 	Table Saves
 		save id (key)
 		name
-		race
-		class
-		job
+		race id
+		class id
+		job id
 		
 	Table PlayerStats
-		save id
+		save id (key)
 		maxHP
 		strength
 		stamina
@@ -15,31 +31,41 @@ Database Schema
 		speed
 		
 	Table PlayerStatus
-		save id
+		save id (key)
 		location id
 		exp
-		(current status)
 		currentHP
-		(status effects)
-		
+		weapon buff
+		armor buff
+		accessory1 buff
+		accessory2 buff
 		
 	Table Player Equipment
-		save id
+		save id (key)
 		weapon id
 		armor id
 		accessory1 id
 		accessory2 id
 		
 	Table Items
-		save id
-		(items)
+		save id (key)
+			(items)
+		item id (key)
 		
 	Table Abilities
-		(abilities)
+		save id (key)
+		ability id (key)
 		
 	Table Quests
-		save id
-		quest id
+		save id (key)
+		quest id (key)
 		completed flag
 		
-		(npc relations)
+	Table NPCs
+		save id 
+			(npc relations)
+		
+		
+	Table Bestiary
+		save id (key)
+		monster id (key)

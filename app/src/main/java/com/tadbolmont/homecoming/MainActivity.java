@@ -15,13 +15,13 @@ public class MainActivity extends BaseActivity{
 
     public void newGame(View view){
 		Intent intent= new Intent(this, SavedGamesDisplay.class);
-		intent.putExtra(EXTRA_MESSAGE, "Select Save File");
+		intent.putExtra(EXTRA_MESSAGE, 1);
 		startActivity(intent);
     }
     
     public void loadGame(View view){
 		Intent intent= new Intent(this, SavedGamesDisplay.class);
-		intent.putExtra(EXTRA_MESSAGE, "Select Saved Game");
+		intent.putExtra(EXTRA_MESSAGE, 2);
 		startActivity(intent);
 	}
 	

@@ -7,11 +7,38 @@
 	android:layout_height="match_parent"
 	tools:context="com.tadbolmont.homecoming.MainScreen">
 	
-	<TextView
-		android:id="@+id/textView"
-		android:layout_width="215dp"
-		android:layout_height="143dp"
-		android:textSize="18sp"
-		tools:layout_editor_absoluteX="65dp"
-		tools:layout_editor_absoluteY="156dp"/>
+	<ScrollView
+		android:layout_width="340dp"
+		android:layout_height="314dp"
+		android:layout_marginLeft="8dp"
+		app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		android:layout_marginTop="7dp">
+		
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			tools:layout_editor_absoluteX="8dp"
+			tools:layout_editor_absoluteY="0dp">
+			
+			<TextView
+				android:id="@+id/textView"
+				android:layout_width="match_parent"
+				android:layout_height="344dp"
+				android:layout_marginEnd="8dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginStart="8dp"
+				android:layout_marginTop="29dp"
+				android:textSize="18sp"
+				app:layout_constraintHorizontal_bias="0.0"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toTopOf="parent"/>
+		</LinearLayout>
+	</ScrollView>
+
 </android.support.constraint.ConstraintLayout>

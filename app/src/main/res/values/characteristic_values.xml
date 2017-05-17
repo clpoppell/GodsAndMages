@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Race Descriptions -->
+	<string name="desc_human"></string>
+	<string name="desc_elf"></string>
+	<string name="desc_dwarf"></string>
+	
+	<!-- Class Descriptions -->
+	<string name="desc_fighter"></string>
+	<string name="desc_rogue"></string>
+	<string name="desc_mage"></string>
+			
+	<!-- Job Descriptions -->
+	<string name="desc_soldier"></string>
+	<string name="desc_spy"></string>
+	<string name="desc_scholar"></string>
+	
+	<!-- Race Stat Mods -->
+	<integer-array name="stat_mods_human">
+		<!-- Str --><item>0</item>
+		<!-- Sta --><item>0</item>
+		<!-- Agi --><item>0</item>
+		<!-- Speed --><item>10</item>
+	</integer-array>
+	<integer-array name="stat_mods_elf">
+		<!-- Str --><item>0</item>
+		<!-- Sta --><item>0</item>
+		<!-- Agi --><item>10</item>
+		<!-- Speed --><item>0</item>
+	</integer-array>
+	<integer-array name="stat_mods_dwarf">
+		<!-- Str --><item>0</item>
+		<!-- Sta --><item>0</item>
+		<!-- Agi --><item>0</item>
+		<!-- Speed --><item>0</item>
+	</integer-array>
+	
+	<!-- Class HP Mods -->
+	<integer name="hp_mod_fighter">10</integer>
+	<integer name="hp_mod_rogue">10</integer>
+	<integer name="hp_mod_mage">10</integer>
+</resources>

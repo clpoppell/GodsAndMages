@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Race Abilities -->
+	<string-array name="abilities_human">
+		<item>Oppotunistic</item>
+	</string-array>
+	<string-array name="abilities_elf">
+		<item>Sleepless</item>
+	</string-array>
+	<string-array name="abilities_dwarf">
+		<item>Poison Resistance</item>
+	</string-array>
+	
+	<!-- Class Abilities -->
+	<string-array name="abilities_fighter">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_rogue">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_mage">
+		<item></item>
+	</string-array>
+	
+	<!-- Job Abilities -->
+	<string-array name="abilities_soldier">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_spy">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_scholar">
+		<item></item>
+	</string-array>
+</resources>

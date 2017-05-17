@@ -5,10 +5,10 @@ public class Monster extends LivingCreature{
 	public int rewardExperiencePoints;
 	public int rewardGold;
 	
-	public Monster(int id, String name, int maximumHitPoints, int currentHitPoints, int strength,
-				   int stamina, int agility, int speed, int rewardExperiencePoints, int rewardGold,
+	public Monster(int id, String name, int maximumHitPoints, int strength, int stamina,
+				   int agility, int speed, int rewardExperiencePoints, int rewardGold,
 				   double baseHitRate, double baseAvoidance){
-		super(name, maximumHitPoints, currentHitPoints, strength, stamina, agility, speed);
+		super(name, maximumHitPoints, strength, stamina, agility, speed);
 		
 		this.id= id;
 		this.rewardExperiencePoints= rewardExperiencePoints;
@@ -21,10 +21,10 @@ public class Monster extends LivingCreature{
 	}
 	
 	public int getAttackPower(){
-		return this.strength;
+		return this.getStr();
 	}
 	
 	public int getDefenseValue(){
-		return this.stamina;
+		return this.getSta();
 	}
 }

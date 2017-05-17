@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
+// Custom class that all activities in project are subclassed from.
+// This class provides needed functionality for implementation of theme.
 public class BaseActivity extends AppCompatActivity{
 	
 	@Override
