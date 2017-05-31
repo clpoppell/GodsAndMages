@@ -9,9 +9,20 @@ import android.widget.TextView;
 import gods_and_mages_engine.Database.SaveGameDBHelper;
 
 public class SavedGamesDisplay extends BaseActivity{
-	public static final String EXTRA_MESSAGE= "com.tadbolmont.homecoming.MESSAGE";
+	//region Extra Keys
+	public static final String EXTRA_MESSAGE_ID= "com.tadbolmont.homecoming.ID";
+	public static final String EXTRA_MESSAGE_LOAD= "com.tadbolmont.homecoming.LOAD";
+	public static final String EXTRA_MESSAGE_NAME= "com.tadbolmont.homecoming.NAME";
+	public static final String EXTRA_MESSAGE_RACE= "com.tadbolmont.homecoming.RACE";
+	public static final String EXTRA_MESSAGE_CLASS= "com.tadbolmont.homecoming.CLASS";
+	public static final String EXTRA_MESSAGE_JOB= "com.tadbolmont.homecoming.JOB";
+	//endregion
 	
-	Intent intent;
+	private Intent intent;
+	private boolean load= false;
+	private String[] saveInfoOne;
+	private String[] saveInfoTwo;
+	private String[] saveInfoThree;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -30,10 +41,11 @@ public class SavedGamesDisplay extends BaseActivity{
 			titleText= "Select Save File";
 			intent= new Intent(this, CreateCharacter.class);
 		}
-		
-		if(pIntent.getIntExtra(MainActivity.EXTRA_MESSAGE, 0) == 2){
+		else if(pIntent.getIntExtra(MainActivity.EXTRA_MESSAGE, 0) == 2){
 			titleText= "Select Saved Game";
 			intent= new Intent(this, MainScreen.class);
+			load= true;
+			intent.putExtra(EXTRA_MESSAGE_LOAD, 1);
 		}
 		
 		// Capture the layout's TextView and set the string as its text
@@ -43,19 +55,19 @@ public class SavedGamesDisplay extends BaseActivity{
 		// Query database for each save slot and sets button text if save data exists
 		SaveGameDBHelper dbHelper= new SaveGameDBHelper(this);
 		
-		String[] saveInfoOne= dbHelper.loadCharacter(1);
+		saveInfoOne= dbHelper.loadCharacterInfo(1);
 		if(saveInfoOne != null){
 			Button button= (Button)findViewById(R.id.saveOne);
 			button.setText(saveInfoOne[0] +"\n"+ saveInfoOne[1] +" "+ saveInfoOne[2]);
 		}
 		
-		String[] saveInfoTwo= dbHelper.loadCharacter(2);
+		saveInfoTwo= dbHelper.loadCharacterInfo(2);
 		if(saveInfoTwo != null){
 			Button button= (Button)findViewById(R.id.saveTwo);
 			button.setText(saveInfoTwo[0] +"\n"+ saveInfoTwo[1] +" "+ saveInfoTwo[2]);
 		}
 		
-		String[] saveInfoThree= dbHelper.loadCharacter(3);
+		saveInfoThree= dbHelper.loadCharacterInfo(3);
 		if(saveInfoThree != null){
 			Button button= (Button)findViewById(R.id.saveThree);
 			button.setText(saveInfoThree[0] +"\n"+ saveInfoThree[1] +" "+ saveInfoThree[2]);
@@ -70,16 +82,34 @@ public class SavedGamesDisplay extends BaseActivity{
 		switch(view.getId()){
 			case R.id.saveOne:
 				id= 1;
+				if(load){
+					intent.putExtra(EXTRA_MESSAGE_NAME, saveInfoOne[0]);
+					intent.putExtra(EXTRA_MESSAGE_RACE, saveInfoOne[1]);
+					intent.putExtra(EXTRA_MESSAGE_CLASS, saveInfoOne[2]);
+					intent.putExtra(EXTRA_MESSAGE_JOB, saveInfoOne[3]);
+				}
 				break;
 			case R.id.saveTwo:
 				id= 2;
+				if(load){
+					intent.putExtra(EXTRA_MESSAGE_NAME, saveInfoTwo[0]);
+					intent.putExtra(EXTRA_MESSAGE_RACE, saveInfoTwo[0]);
+					intent.putExtra(EXTRA_MESSAGE_CLASS, saveInfoTwo[1]);
+					intent.putExtra(EXTRA_MESSAGE_JOB, saveInfoTwo[2]);
+				}
 				break;
 			case R.id.saveThree:
 				id= 3;
+				if(load){
+					intent.putExtra(EXTRA_MESSAGE_NAME, saveInfoThree[0]);
+					intent.putExtra(EXTRA_MESSAGE_RACE, saveInfoThree[0]);
+					intent.putExtra(EXTRA_MESSAGE_CLASS, saveInfoThree[1]);
+					intent.putExtra(EXTRA_MESSAGE_JOB, saveInfoThree[2]);
+				}
 				break;
 		}
 		
-		intent.putExtra(EXTRA_MESSAGE, id);
+		intent.putExtra(EXTRA_MESSAGE_ID, id);
 		startActivity(intent);
 	}
 }

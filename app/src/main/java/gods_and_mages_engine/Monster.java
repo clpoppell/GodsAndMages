@@ -1,16 +1,18 @@
 package gods_and_mages_engine;
 
 public class Monster extends LivingCreature{
-	public int id;
-	public int rewardExperiencePoints;
-	public int rewardGold;
+	private final double baseHitRate;
+	private final double baseAvoidance;
+	private final int rewardExperiencePoints;
+	private final int rewardGold;
 	
-	public Monster(int id, String name, int maximumHitPoints, int strength, int stamina,
-				   int agility, int speed, int rewardExperiencePoints, int rewardGold,
-				   double baseHitRate, double baseAvoidance){
+	public Monster(String name, String desc, int maximumHitPoints, int strength, int stamina,
+				   int agility, int speed, double baseHitRate, double baseAvoidance,
+				   int rewardExperiencePoints, int rewardGold){
 		super(name, maximumHitPoints, strength, stamina, agility, speed);
 		
-		this.id= id;
+		this.baseHitRate= baseHitRate;
+		this.baseAvoidance= baseAvoidance;
 		this.rewardExperiencePoints= rewardExperiencePoints;
 		this.rewardGold= rewardGold;
 		/*
@@ -20,11 +22,11 @@ public class Monster extends LivingCreature{
 		*/
 	}
 	
-	public int getAttackPower(){
+	@Override
+	public int getAtkPower(){
 		return this.getStr();
 	}
 	
-	public int getDefenseValue(){
-		return this.getSta();
-	}
+	@Override
+	public int getDefValue(){ return this.getSta(); }
 }

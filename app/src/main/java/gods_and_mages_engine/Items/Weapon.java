@@ -2,7 +2,7 @@ package gods_and_mages_engine.Items;
 
 // -
 public class Weapon extends EquipableItem{
-	private double dmgMod;
+	private final double dmgMod;
 	
 	public Weapon(String name, String namePlural, String desc, int price, double dmgMod){
 		super(name, namePlural, desc, price);

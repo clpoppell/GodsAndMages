@@ -23,10 +23,10 @@
 		<!-- Speed --><item>10</item>
 	</integer-array>
 	<integer-array name="stat_mods_elf">
-		<!-- Str --><item>0</item>
-		<!-- Sta --><item>0</item>
-		<!-- Agi --><item>10</item>
-		<!-- Speed --><item>0</item>
+		<!-- Str --><item>1</item>
+		<!-- Sta --><item>1</item>
+		<!-- Agi --><item>3</item>
+		<!-- Speed --><item>2</item>
 	</integer-array>
 	<integer-array name="stat_mods_dwarf">
 		<!-- Str --><item>0</item>

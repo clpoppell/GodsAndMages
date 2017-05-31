@@ -9,6 +9,7 @@ Assign abilities to characteristics
 Assign scores to races and classes
 Implement help function for character creation
 Fix color changing
+
 		
 SaveGameDBHelper dbHelper= new SaveGameDBHelper(this);
 		dbHelper.refreshDatabase();
@@ -32,39 +33,36 @@ Database Schema
 		
 	Table PlayerStatus
 		save id (key)
-		location id
+		location
+		gold
 		exp
 		currentHP
-		weapon buff
-		armor buff
-		accessory1 buff
-		accessory2 buff
+		status
 		
 	Table Player Equipment
 		save id (key)
-		weapon id
-		armor id
-		accessory1 id
-		accessory2 id
+		weapon
+		armor
+		accessory1
+		accessory2
 		
 	Table Items
 		save id (key)
-			(items)
-		item id (key)
+		item (key)
+		quantity
 		
 	Table Abilities
 		save id (key)
-		ability id (key)
+		ability (key)
 		
 	Table Quests
 		save id (key)
-		quest id (key)
+		quest (key)
 		completed flag
 		
 	Table NPCs
 		save id 
 			(npc relations)
-		
 		
 	Table Bestiary
 		save id (key)

@@ -30,21 +30,21 @@ public class ManageDataActivity extends BaseActivity implements DeleteFileDialog
 		button3= (Button)findViewById(R.id.deleteSaveThree);
 		
 		// Query database for each save slot and sets button text if save data exists
-		String[] saveInfoOne= dbHelper.loadCharacter(1);
+		String[] saveInfoOne= dbHelper.loadCharacterInfo(1);
 		if(saveInfoOne != null){
 			empty[1]= false;
 			button1.setText(saveInfoOne[0] +"\n"+ saveInfoOne[1] +" "+ saveInfoOne[2]);
 		}
 		
-		String[] saveInfoTwo= dbHelper.loadCharacter(2);
+		String[] saveInfoTwo= dbHelper.loadCharacterInfo(2);
 		if(saveInfoTwo != null){
 			empty[2]= false;
 			button2.setText(saveInfoTwo[0] +"\n"+ saveInfoTwo[1] +" "+ saveInfoTwo[2]);
 		}
 		
-		String[] saveInfoThree= dbHelper.loadCharacter(3);
+		String[] saveInfoThree= dbHelper.loadCharacterInfo(3);
 		if(saveInfoThree != null){
-			empty[1]= false;
+			empty[3]= false;
 			button3.setText(saveInfoThree[0] +"\n"+ saveInfoThree[1] +" "+ saveInfoThree[2]);
 		}
 	}
@@ -76,7 +76,6 @@ public class ManageDataActivity extends BaseActivity implements DeleteFileDialog
 	
 	@Override
 	public void onDialogPositiveClick(DialogFragment dialog){
-		dbHelper.deleteSave(id);
 		empty[id]= true;
 		
 		if(id == 0){
@@ -90,12 +89,15 @@ public class ManageDataActivity extends BaseActivity implements DeleteFileDialog
 			button3.setText("Empty");
 		}
 		else if(id == 1){
+			dbHelper.deleteSave(id);
 			button1.setText("Empty");
 		}
 		else if(id == 2){
+			dbHelper.deleteSave(id);
 			button2.setText("Empty");
 		}
 		else if(id == 3){
+			dbHelper.deleteSave(id);
 			button3.setText("Empty");
 		}
 	}

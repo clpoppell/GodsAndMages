@@ -12,8 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import gods_and_mages_engine.Database.SaveGameDBHelper;
-
 public class CreateCharacter extends BaseActivity implements AdapterView.OnItemSelectedListener{
 	public static final String EXTRA_MESSAGE= "com.tadbolmont.homecoming.MESSAGE";
 	
@@ -80,21 +78,17 @@ public class CreateCharacter extends BaseActivity implements AdapterView.OnItemS
 	
 	public void startGame(View view){
 		EditText editText= (EditText)findViewById(R.id.name_editText);
-		String[] charInfo= new String[4];
-		SaveGameDBHelper dbHelper= new SaveGameDBHelper(this);
 		Intent pIntent= getIntent();
 		Intent intent= new Intent(this, MainScreen.class);
 		
-		int id= pIntent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE, 0);
-		charInfo[0]= editText.getText().toString();
-		charInfo[1]= raceSpinner.getSelectedItem().toString();
-		charInfo[2]= classSpinner.getSelectedItem().toString();
-		charInfo[3]= jobSpinner.getSelectedItem().toString();
+		int id= pIntent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, 0);
 		
-		dbHelper.insertCharacter(id, charInfo[0], charInfo[1], charInfo[2], charInfo[3]);
-		dbHelper.close();
-		
-		intent.putExtra(EXTRA_MESSAGE, id);
+		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, id);
+		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_LOAD, 0);
+		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_NAME, editText.getText().toString());
+		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_RACE, raceSpinner.getSelectedItem().toString());
+		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_CLASS, classSpinner.getSelectedItem().toString());
+		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_JOB, jobSpinner.getSelectedItem().toString());
 		startActivity(intent);
 	}
 }

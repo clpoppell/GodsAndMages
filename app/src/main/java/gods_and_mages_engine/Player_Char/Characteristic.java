@@ -1,17 +1,17 @@
 package gods_and_mages_engine.Player_Char;
 
-import gods_and_mages_engine.Ability;
-
 public abstract class Characteristic{
 	//region Variables
 	private String name;
 	private String desc;
-	private Ability[] abilitiesGranted;
+	private String[] traitsGranted;
+	private String[] abilitiesGranted;
 	//endregion
 	
-	public Characteristic(String name, String desc, Ability[] abilitiesGranted){
+	public Characteristic(String name, String desc, String[] traitsGranted, String[] abilitiesGranted){
 		this.name= name;
 		this.desc= desc;
+		this.traitsGranted= traitsGranted;
 		this.abilitiesGranted= abilitiesGranted;
 	}
 	
@@ -21,9 +21,11 @@ public abstract class Characteristic{
 	
 	public String getDesc(){ return desc; }
 	
-	public Ability[] getAbilitiesGranted(){ return abilitiesGranted; }
+	public String[] getTraitsGranted(){ return traitsGranted; }
+	
+	public String[] getAbilitiesGranted(){ return abilitiesGranted; }
 	
 	public String toString(){
-		return this.name;
+		return name +": "+ traitsGranted.toString();
 	}
 }

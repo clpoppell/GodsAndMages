@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- Race Abilities -->
-	<string-array name="abilities_human">
-		<item>Oppotunistic</item>
+	<!-- Race Traits -->
+	<string-array name="traits_human">
+		<item>Opportunistic</item>
 	</string-array>
-	<string-array name="abilities_elf">
+	<string-array name="traits_elf">
 		<item>Sleepless</item>
 	</string-array>
-	<string-array name="abilities_dwarf">
-		<item>Poison Resistance</item>
+	<string-array name="traits_dwarf">
+		<item>Poison Resistance 25%</item>
 	</string-array>
 	
-	<!-- Class Abilities -->
-	<string-array name="abilities_fighter">
-		<item></item>
+	<!-- Class Traits -->
+	<string-array name="traits_fighter">
+		<item>Shield</item>
 	</string-array>
-	<string-array name="abilities_rogue">
-		<item></item>
+	<string-array name="traits_rogue">
+		<item>Accurate</item>
 	</string-array>
-	<string-array name="abilities_mage">
-		<item></item>
+	<string-array name="traits_mage">
+		<item>Aura Armor</item>
 	</string-array>
 	
-	<!-- Job Abilities -->
-	<string-array name="abilities_soldier">
+	<!-- Job Traits -->
+	<string-array name="traits_soldier">
 		<item></item>
 	</string-array>
-	<string-array name="abilities_spy">
+	<string-array name="traits_spy">
 		<item></item>
 	</string-array>
-	<string-array name="abilities_scholar">
+	<string-array name="traits_scholar">
 		<item></item>
 	</string-array>
 </resources>

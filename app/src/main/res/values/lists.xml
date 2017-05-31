@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string-array name="items">
-		<item>Club* Clubs* A short branch* 1* 0.15</item>
+	<string-array name="item_list">
+		<!-- List of Items as formatted strings -->
+		<!-- Format: item category # name # name plural # price # extra attributes # description -->
+		<!-- Recovery items have recovery type and recovery amount extra attribute -->
+		
+		<!-- Usable(possible split) -->
+		
+		<!-- Weapons have a damage modifier extra attribute -->
+		<item>Weapon # Club # Clubs # 1 # 0.15 # A short branch.</item>
+		<item>Weapon # Mace # Maces # 5 # 0.20 # A metal ball affixed to a handle.</item>
+		<item>Weapon # Staff # Staves # 3 # 0.25 # A sturdy stick.</item>
+		
+		<!-- Armors have a armor modifier extra attribute -->
+		<item>Armor # Leather Armor # Leather Armors # 5 # 0.15 # Armor made of leather.</item>
+		
+		<!-- Accessories  -->
+		
+		<!-- Misc items are any items that cannot be directly used by the player -->
+		<item>Misc # Gem # Gems # 50 # A small gemstone. It sells for a high price.</item>
+		
+		<!-- Key items are used to complete quests and cannot be freely dropped -->
+		<item>Key # Dagger Hilt # The hilt of a broken dagger. It is covered in strange runes.</item>
+	</string-array>
+	
+	<string-array name="trait_list">
+		<!-- List of Traits as formatted lists -->
+		<!-- Format: trait type # name # trait class # extra attributes # description -->
+		<!-- Resistance traits have resis type and resis percentage extra attributes -->
+		<item>Resist # Poison Resistance 25% # Poison Resist # Poison # 0.25 # Poison is less effective for you.</item>
+		<item>Resist # Sleepless             # Sleep Resist  # Sleep  # 1.00 # Sleep is not a necessity for you.</item>
+		<item>Resist # Hard to Tire          # Sleep Resist  # Sleep  # 0.75 # Sleep does not come easy to you.</item>
+		<!--<item>Resist # # # # #</item>-->
+		
+		<!-- Boost traits have boost type and boost percentage extra attributes -->
+		<!-- Attributes to boost: Crit Rate, Accuracy, Avoidance, Defense, Speed, Attack -->
+		<item>Boost # Opportunistic # Crit Rate Up # Crit Rate # 0.05 # You know how to take advantage of weak points.</item>
+		<item>Boost # Accurate      # Accuracy Up  # Accuracy  # 0.10 # You are more likely to hit.</item>
+		<item>Boost # Shield        # Avoid Up     # Avoidance # 0.05 # Your skill with a shield makes you harder to hit.</item>
+		<item>Boost # Aura Armor    # Def Up       # Defense   # 0.15 # You form armor from pure mana.</item>
+		<!--<item>Boost #  #  #  #  #</item>-->
+	</string-array>
+	
+	<string-array name="ability_list">
+		<!-- List of Abilities as formatted strings -->
+		<!--  -->
+		<item></item>
+	</string-array>
+	
+	<string-array name="monster_list">
+		<!-- List of Monsters as formatted strings -->
+		<!-- Format: name # maxHP # str # sta # agi # speed # baseHitRate # baseAvoidance # exp # gold # desc -->
+		<item>Goblin # 20 # 2 # 2 # 2 # 2 # 1.0 # 0.15 # 2 # 10 # desc needed</item>
+	</string-array>
+	
+	<string-array name="location_list">
+		<!--  -->
+		<item></item>
 	</string-array>
 </resources>
