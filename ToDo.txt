@@ -9,6 +9,8 @@ Assign abilities to characteristics
 Assign scores to races and classes
 Implement help function for character creation
 Fix color changing
+Rebalance to hit formula
+
 
 		
 SaveGameDBHelper dbHelper= new SaveGameDBHelper(this);

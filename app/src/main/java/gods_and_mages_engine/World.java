@@ -7,14 +7,8 @@ import com.tadbolmont.homecoming.R;
 import java.util.HashMap;
 import java.util.Map;
 
-import gods_and_mages_engine.Abilities.BaseAbility;
-import gods_and_mages_engine.Abilities.BaseTrait;
-import gods_and_mages_engine.Abilities.BoostTrait;
-import gods_and_mages_engine.Abilities.ResistTrait;
-import gods_and_mages_engine.Items.Armor;
-import gods_and_mages_engine.Items.BaseItem;
-import gods_and_mages_engine.Items.KeyItem;
-import gods_and_mages_engine.Items.Weapon;
+import gods_and_mages_engine.Abilities.*;
+import gods_and_mages_engine.Items.*;
 import gods_and_mages_engine.Player_Char.CharClass;
 import gods_and_mages_engine.Player_Char.CharJob;
 import gods_and_mages_engine.Player_Char.CharRace;
@@ -31,6 +25,8 @@ public final class World{
 	private static final Map<String, BaseTrait> TRAIT_LIST= populateTraitList();
 	private static final Map<String, BaseAbility> ABILITY_LIST = populateAbilityList();
 	private static final Map<String, BaseItem> ITEM_LIST= populateItemList();
+	
+	private static final Map<String, Location> LOCATION_LIST= populateLocationList();
 	
 	//region Make Characteristics Methods
 	public static CharRace makeCharRace(String charRaceName){
@@ -93,19 +89,19 @@ public final class World{
 		String[] abilities;
 		switch(charJobName){
 			case "Soldier":
-				traits= null;
+				traits= RES.getStringArray(R.array.traits_soldier);
 				abilities= null;
-				charJob= new CharJob(charJobName, RES.getString(R.string.desc_soldier), null, null);
+				charJob= new CharJob(charJobName, RES.getString(R.string.desc_soldier), traits, abilities);
 				break;
 			case "Spy":
-				traits= null;
+				traits= RES.getStringArray(R.array.traits_spy);
 				abilities= null;
-				charJob= new CharJob(charJobName, RES.getString(R.string.desc_spy), null, null);
+				charJob= new CharJob(charJobName, RES.getString(R.string.desc_spy), traits, abilities);
 				break;
 			case "Scholar":
-				traits= null;
+				traits= RES.getStringArray(R.array.traits_scholar);
 				abilities= null;
-				charJob= new CharJob(charJobName, RES.getString(R.string.desc_scholar), null, null);
+				charJob= new CharJob(charJobName, RES.getString(R.string.desc_scholar), traits, abilities);
 				break;
 			default: charJob= new CharJob("Needs Entry", "Needs Desc", null, null);
 		}
@@ -114,6 +110,8 @@ public final class World{
 	//endregion
 	
 	//region Populate Lists Methods
+	// Takes trait strings from lists.xml and splits them to obtain trait information,
+	// constructs BaseTrait objects using this information, and adds objects to TRAIT_LIST
 	private static Map<String,BaseTrait> populateTraitList(){
 		Map<String, BaseTrait> traits= new HashMap<String, BaseTrait>();
 		String[] traitStrings= RES.getStringArray(R.array.trait_list);
@@ -135,9 +133,24 @@ public final class World{
 		return traits;
 	}
 	
+	// Takes ability strings from lists.xml and splits them to obtain ability information,
+	// constructs BaseAbility objects using this information, and adds objects to ABILITY_LIST
 	private static Map<String, BaseAbility> populateAbilityList(){
+		Map<String, BaseAbility> abilities= new HashMap<String, BaseAbility>();
+		String[] abilityStrings= RES.getStringArray(R.array.ability_list);
+		String[] abilityInfo;
 		
-		return null;
+		for(String ability : abilityStrings){
+			abilityInfo= ability.split(" # ");
+			switch(abilityInfo[0]){
+				case "Attack":
+					abilities.put(abilityInfo[1].trim(), new AttackAbility(abilityInfo[1].trim(), abilityInfo[11], abilityInfo[2].trim(),
+							abilityInfo[3].trim(), abilityInfo[4].trim(), Integer.parseInt(abilityInfo[5]), Double.parseDouble(abilityInfo[6]),
+							Double.parseDouble(abilityInfo[7]), Double.parseDouble(abilityInfo[8]), Double.parseDouble(abilityInfo[9]),
+							Double.parseDouble(abilityInfo[10])));
+			}
+		}
+		return abilities;
 	}
 	
 	// Takes item strings from lists.xml and splits them to obtain item information,
@@ -156,25 +169,36 @@ public final class World{
 				case "Usable": // possible split
 					break;
 				case "Weapon":
-					items.put(itemInfo[1], new Weapon(itemInfo[1], itemInfo[2], itemInfo[5],
+					items.put(itemInfo[1].trim(), new Weapon(itemInfo[1].trim(), itemInfo[2].trim(), itemInfo[5],
 							Integer.parseInt(itemInfo[3]), Double.parseDouble(itemInfo[4])));
 					break;
 				case "Armor":
-					items.put(itemInfo[1], new Armor(itemInfo[1], itemInfo[2], itemInfo[5],
+					items.put(itemInfo[1].trim(), new Armor(itemInfo[1].trim(), itemInfo[2].trim(), itemInfo[5],
 							Integer.parseInt(itemInfo[3]), Double.parseDouble(itemInfo[4])));
 					break;
 				case "Accessory":
+					items.put(itemInfo[1].trim(), new Accessory(itemInfo[1].trim(), itemInfo[2].trim(), itemInfo[5],
+							Integer.parseInt(itemInfo[3]), itemInfo[4].trim()));
 					break;
 				case "Key":
-					items.put(itemInfo[1], new KeyItem(itemInfo[1], itemInfo[2]));
+					items.put(itemInfo[1].trim(), new KeyItem(itemInfo[1].trim(), itemInfo[2]));
 					break;
 				case "Misc": // possible split
-					items.put(itemInfo[1], new BaseItem(itemInfo[1], itemInfo[2], itemInfo[4],
+					items.put(itemInfo[1].trim(), new BaseItem(itemInfo[1].trim(), itemInfo[2].trim(), itemInfo[4],
 							Integer.parseInt(itemInfo[3])));
 					break;
 			}
 		}
 		return items;
+	}
+	
+	// Takes location strings from lists.xml and splits them to obtain location information,
+	// constructs Location objects using this information, and adds objects to LOCATION_LIST
+	private static Map<String,Location> populateLocationList(){
+		Map<String, Location> locations= new HashMap<String, Location>();
+		String[] itemStrings= RES.getStringArray(R.array.location_list);
+		String[] itemInfo;
+		return null;
 	}
 	//endregion
 	

@@ -20,7 +20,7 @@ public class ManageDataActivity extends BaseActivity implements DeleteFileDialog
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_save_files_delete);
 		
-		dbHelper= new SaveGameDBHelper(this);
+		dbHelper= SaveGameDBHelper.getInstance();
 		populateText();
 	}
 	

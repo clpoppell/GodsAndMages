@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import gods_and_mages_engine.Database.SaveGameDBHelper;
+import gods_and_mages_engine.Player_Char.Player;
 
 public class SavedGamesDisplay extends BaseActivity{
 	//region Extra Keys
@@ -18,6 +19,7 @@ public class SavedGamesDisplay extends BaseActivity{
 	public static final String EXTRA_MESSAGE_JOB= "com.tadbolmont.homecoming.JOB";
 	//endregion
 	
+	SaveGameDBHelper dbHelper= SaveGameDBHelper.getInstance();
 	private Intent intent;
 	private boolean load= false;
 	private String[] saveInfoOne;
@@ -53,8 +55,6 @@ public class SavedGamesDisplay extends BaseActivity{
 		textView.setText(titleText);
 		
 		// Query database for each save slot and sets button text if save data exists
-		SaveGameDBHelper dbHelper= new SaveGameDBHelper(this);
-		
 		saveInfoOne= dbHelper.loadCharacterInfo(1);
 		if(saveInfoOne != null){
 			Button button= (Button)findViewById(R.id.saveOne);
@@ -82,30 +82,15 @@ public class SavedGamesDisplay extends BaseActivity{
 		switch(view.getId()){
 			case R.id.saveOne:
 				id= 1;
-				if(load){
-					intent.putExtra(EXTRA_MESSAGE_NAME, saveInfoOne[0]);
-					intent.putExtra(EXTRA_MESSAGE_RACE, saveInfoOne[1]);
-					intent.putExtra(EXTRA_MESSAGE_CLASS, saveInfoOne[2]);
-					intent.putExtra(EXTRA_MESSAGE_JOB, saveInfoOne[3]);
-				}
+				if(load){ Player.makePlayer(id, null); }
 				break;
 			case R.id.saveTwo:
 				id= 2;
-				if(load){
-					intent.putExtra(EXTRA_MESSAGE_NAME, saveInfoTwo[0]);
-					intent.putExtra(EXTRA_MESSAGE_RACE, saveInfoTwo[0]);
-					intent.putExtra(EXTRA_MESSAGE_CLASS, saveInfoTwo[1]);
-					intent.putExtra(EXTRA_MESSAGE_JOB, saveInfoTwo[2]);
-				}
+				if(load){ Player.makePlayer(id, null); }
 				break;
 			case R.id.saveThree:
 				id= 3;
-				if(load){
-					intent.putExtra(EXTRA_MESSAGE_NAME, saveInfoThree[0]);
-					intent.putExtra(EXTRA_MESSAGE_RACE, saveInfoThree[0]);
-					intent.putExtra(EXTRA_MESSAGE_CLASS, saveInfoThree[1]);
-					intent.putExtra(EXTRA_MESSAGE_JOB, saveInfoThree[2]);
-				}
+				if(load){ Player.makePlayer(id, null); }
 				break;
 		}
 		

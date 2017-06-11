@@ -3,7 +3,7 @@ package gods_and_mages_engine.Abilities;
 // Base class for all abilities possessed by the player character and monsters
 public abstract class BaseAbility{
 	private String key; // Unique name used to identify ability
-	private String desc;
+	private String desc; // Description of ability for UI display
 	
 	public BaseAbility(String key, String desc){
 		this.key= key;

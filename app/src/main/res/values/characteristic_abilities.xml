@@ -24,12 +24,12 @@
 	
 	<!-- Job Traits -->
 	<string-array name="traits_soldier">
-		<item></item>
+		<item>Well-Trained</item>
 	</string-array>
 	<string-array name="traits_spy">
-		<item></item>
+		<item>Hard to Sway</item>
 	</string-array>
 	<string-array name="traits_scholar">
-		<item></item>
+		<item>Learned</item>
 	</string-array>
 </resources>

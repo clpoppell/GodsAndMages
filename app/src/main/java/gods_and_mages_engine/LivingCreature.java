@@ -2,21 +2,24 @@ package gods_and_mages_engine;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Random;
 
+import gods_and_mages_engine.Abilities.BaseAbility;
 import gods_and_mages_engine.Abilities.BaseTrait;
 
 public abstract class LivingCreature{
+	//region Constants
 	
 	
 	//region Variables
 	protected String name;
 	protected int currentHitPoints;
 	protected int maximumHitPoints;
-	protected double hitRate;
-	protected double avoidance;
+	
 	protected String status;
+	protected boolean canBattle= true;
+	
 	protected Map<String, BaseTrait> traits= new LinkedHashMap<String, BaseTrait>();
+	protected Map<String, BaseAbility> abilities= new LinkedHashMap<String, BaseAbility>();
 	
 	//Base Stats
 	protected int str; // Physical attack modifier, goes into PC attackPower stat
@@ -39,7 +42,7 @@ public abstract class LivingCreature{
 	//region Accessors
 	public String getName(){ return name; }
 	
-	public void setName(String name){ this.name = name; }
+	public void setName(String name){ this.name= name; }
 	
 	public int getCurrentHitPoints(){ return currentHitPoints; }
 	
@@ -47,66 +50,36 @@ public abstract class LivingCreature{
 	
 	public int getMaximumHitPoints(){ return maximumHitPoints; }
 	
-	public void setMaximumHitPoints(int maximumHitPoints){ this.maximumHitPoints= maximumHitPoints; }
-	
-	public double getHitRate(){ return hitRate; }
-	
-	public void setHitRate(double hitRate){ this.hitRate = hitRate; }
-	
-	public double getAvoidance(){ return avoidance; }
-	
-	public void setAvoidance(double avoidance){ this.avoidance = avoidance; }
-	
 	public String getStatus(){ return status; }
 	
 	public void setStatus(String status){ this.status= status; }
 	
-	public int getStr(){ return str; }
-	
-	public void setStr(int mod){ this.str += mod; }
-	
-	public int getSta(){ return sta; }
-	
-	public void setSta(int mod){ this.sta += mod; }
-	
-	public int getAgi(){ return agi; }
-	
-	public void setAgi(int mod){ this.agi += mod; }
-	
-	public int getSpeed(){ return speed; }
-	
-	public void setSpeed(int mod){ this.speed += mod; }
-	
-	// Temporary return values
-	public int changeCurrentHP(int amount){
-		this.currentHitPoints += amount;
-		return this.currentHitPoints;
+	// Applies a change to creature's current hp
+	//
+	public void changeCurrentHP(int amt){
+		if(currentHitPoints + amt >= maximumHitPoints){
+			currentHitPoints= maximumHitPoints;
+		}
+		else if(currentHitPoints + amt <= 0){
+			currentHitPoints= 0;
+			status= "Dead";
+		}
+		else{ currentHitPoints += amt; }
 	}
+	
+	public abstract int getSpeed();
 	
 	public abstract int getAtkPower();
 	
 	public abstract int getDefValue();
-	//endregion
 	
-	public int damageDealt(LivingCreature defender){
-		Random r= new Random();
-		int range= (int)Math.ceil(this.getAtkPower() * 1.5) - this.getAtkPower();
-		
-		int damage= r.nextInt(range) + (this.getAtkPower() + 1);
-		double reduction= defender.getDefValue()/(defender.getDefValue()+100.00);
-		
-		damage -= (int)Math.ceil((damage * reduction));
-		
-		if(damage <= 0){ damage= 1; }
-		if(damage > defender.currentHitPoints){ damage= defender.currentHitPoints; }
-		
-		//Wakes up defender if asleep
-		//if(defender.status == Types.statusSet.Asleep){ defender.status= Types.statusSet.Normal;}
-		return damage;
-	}
+	public abstract int getAccuracy();
+	
+	public abstract int getAvoidance();
+	//endregion
 	
 	@Override
 	public String toString(){
-		return this.getName();
+		return this.name;
 	}
 }

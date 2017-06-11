@@ -2,17 +2,27 @@ package com.tadbolmont.homecoming;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
-import gods_and_mages_engine.Database.SaveGameDBHelper;
+import java.util.ArrayList;
+import java.util.List;
+
+import gods_and_mages_engine.Battle;
+import gods_and_mages_engine.Monster;
 import gods_and_mages_engine.Player_Char.Player;
 
 public class MainScreen extends BaseActivity{
-	private Intent intent;
-	private SaveGameDBHelper dbHelper= new SaveGameDBHelper(this);
 	private int id;
-	private int load;
 	private Player pc;
+	private Battle battle;
+	
+	//temp
+	private Monster m;
+	private Monster m2;
+	private Monster m3;
+	List<Monster> mList= new ArrayList<Monster>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -20,43 +30,52 @@ public class MainScreen extends BaseActivity{
 		setContentView(R.layout.activity_main_screen);
 		
 		//Get the Intent that started this activity and extract the extras
-		intent= getIntent();
+		Intent intent = getIntent();
 		id= intent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, 0);
-		load= intent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE_LOAD, 0);
 		
 		setupPlayerCharacter();
 	}
 	
 	private void setupPlayerCharacter(){
-		//Capture the layout's TextView and set the string as its text
+		pc= Player.getPlayer();
+		m= new Monster("Goblin", "", 30, 15, 15, 25, 20, 4, 20);
+		m2= new Monster("Spider", "", 5, 15, 15, 25, 20, 4, 20);
+		m3= new Monster("Rat", "", 30, 15, 15, 25, 20, 4, 20);
+		
+		mList.add(m);
+		mList.add(m2);
+		mList.add(m3);
+		
+		battle= new Battle(mList);
+		
+		//TextView textView= (TextView)findViewById(R.id.textView);
+		//textView.append(pc.toString() +"\n\n");
+	}
+	
+	public void encounter(View view){
+		battle.pcAttack(2);
+		battle.pcAttack(0);
+		battle.pcAttack(1);
+		
 		TextView textView= (TextView)findViewById(R.id.textView);
-		
-		if(load == 0){ newGame(); }
-		else{ loadGame(); }
-		
-		saveGame();
-		
-		textView.append(pc.toString() +"\n\n");
+		textView.append(battle.printResults() +"\n");
+		scroll();
 	}
 	
-	private void newGame(){
-		String[] charInfo= {
-				intent.getStringExtra(SavedGamesDisplay.EXTRA_MESSAGE_NAME),
-				intent.getStringExtra(SavedGamesDisplay.EXTRA_MESSAGE_RACE),
-				intent.getStringExtra(SavedGamesDisplay.EXTRA_MESSAGE_CLASS),
-				intent.getStringExtra(SavedGamesDisplay.EXTRA_MESSAGE_JOB)
-		};
-		pc= new Player(charInfo, id);
-
-		dbHelper.insertCharacter(id, charInfo, pc.getStatArray(), pc.getEquipmentArray(), pc.getStatus(), pc.getLocationName());
+	public void talk(View view){
+		pc.addExp(20);
+		TextView textView= (TextView)findViewById(R.id.textView);
+		textView.setText(pc.toString() +"\n\n");
+		
+		scroll();
 	}
 	
-	private void loadGame(){
-		String[] charInfo= dbHelper.loadSave(id);
-		pc= new Player(charInfo, id, true);
+	public void beginBattle(View view){
+		
 	}
 	
-	private void saveGame(){
-		dbHelper.updateStatus(id, pc.getGold(), pc.getExp(), pc.getCurrentHitPoints(), pc.getStatus());
+	private void scroll(){
+		ScrollView sv= (ScrollView)findViewById(R.id.scrollView2);
+		sv.fullScroll(ScrollView.FOCUS_DOWN);
 	}
 }

@@ -78,12 +78,10 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 	private static final String SQL_DELETE_INVENTORY= " DROP TABLE IF EXISTS "+ INVENTORY_TABLE;
 	//endregion
 	
-	public SaveGameDBHelper(Context context){ super(context, DATABASE_NAME, null, DATABASE_VERSION); }
+	private SaveGameDBHelper(Context context){ super(context, DATABASE_NAME, null, DATABASE_VERSION); }
 	
 	public static synchronized SaveGameDBHelper getInstance(){
-		if(instance == null){
-			instance= new SaveGameDBHelper(App.context);
-		}
+		if(instance == null){ instance= new SaveGameDBHelper(App.context); }
 		return instance;
 	}
 	
@@ -156,17 +154,19 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 	}
 	
 	// Called upon starting a new game to add initial character information into database
-	public void insertCharacter(int saveID, String[] charInfo, int[] charStats, String[] equipment,
-								String status, String location){
+	public void insertCharacter(int saveID, String charName, String charRace, String charClass, String charJob,
+								int level, int maximumHitPoints, int str, int sta, int agi, int speed,
+								int gold, int exp, int currentHitPoints, String wpnName, String armorName,
+								String accNameOne, String accNameTwo, String status, String location){
 		SQLiteDatabase db= getWritableDatabase();
 		// Inserts into Saves table
 		ContentValues contentValues= new ContentValues();
 		
 		contentValues.put(SAVES_COLUMN_SAVE_ID, saveID);
-		contentValues.put(SAVES_COLUMN_NAME, charInfo[0]);
-		contentValues.put(SAVES_COLUMN_RACE, charInfo[1]);
-		contentValues.put(SAVES_COLUMN_CLASS, charInfo[2]);
-		contentValues.put(SAVES_COLUMN_JOB, charInfo[3]);
+		contentValues.put(SAVES_COLUMN_NAME, charName);
+		contentValues.put(SAVES_COLUMN_RACE, charRace);
+		contentValues.put(SAVES_COLUMN_CLASS, charClass);
+		contentValues.put(SAVES_COLUMN_JOB, charJob);
 		
 		db.insert(SAVES_TABLE, null, contentValues);
 		
@@ -174,12 +174,12 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		contentValues= new ContentValues();
 		
 		contentValues.put(STATS_COLUMN_SAVE_ID, saveID);
-		contentValues.put(STATS_COLUMN_LEVEL, charStats[0]);
-		contentValues.put(STATS_COLUMN_MAXHP, charStats[1]);
-		contentValues.put(STATS_COLUMN_STRENGTH, charStats[2]);
-		contentValues.put(STATS_COLUMN_STAMINA, charStats[3]);
-		contentValues.put(STATS_COLUMN_AGILITY, charStats[4]);
-		contentValues.put(STATS_COLUMN_SPEED, charStats[5]);
+		contentValues.put(STATS_COLUMN_LEVEL, level);
+		contentValues.put(STATS_COLUMN_MAXHP, maximumHitPoints);
+		contentValues.put(STATS_COLUMN_STRENGTH, str);
+		contentValues.put(STATS_COLUMN_STAMINA, sta);
+		contentValues.put(STATS_COLUMN_AGILITY, agi);
+		contentValues.put(STATS_COLUMN_SPEED, speed);
 		
 		db.insert(STATS_TABLE, null, contentValues);
 		
@@ -188,9 +188,9 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		
 		contentValues.put(STATUS_COLUMN_SAVE_ID, saveID);
 		contentValues.put(STATUS_COLUMN_LOCATION, location);
-		contentValues.put(STATUS_COLUMN_GOLD, charStats[6]);
-		contentValues.put(STATUS_COLUMN_EXP, charStats[7]);
-		contentValues.put(STATUS_COLUMN_CURRENT_HP, charStats[8]);
+		contentValues.put(STATUS_COLUMN_GOLD, gold);
+		contentValues.put(STATUS_COLUMN_EXP, exp);
+		contentValues.put(STATUS_COLUMN_CURRENT_HP, currentHitPoints);
 		contentValues.put(STATUS_COLUMN_STATUS, status);
 		
 		db.insert(STATUS_TABLE, null, contentValues);
@@ -199,10 +199,10 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		contentValues= new ContentValues();
 		
 		contentValues.put(EQUIPMENT_COLUMN_SAVE_ID, saveID);
-		contentValues.put(EQUIPMENT_COLUMN_WEAPON, equipment[0]);
-		contentValues.put(EQUIPMENT_COLUMN_ARMOR, equipment[1]);
-		contentValues.put(EQUIPMENT_COLUMN_ACCESSORY_1, equipment[2]);
-		contentValues.put(EQUIPMENT_COLUMN_ACCESSORY_2, equipment[3]);
+		contentValues.put(EQUIPMENT_COLUMN_WEAPON, wpnName);
+		contentValues.put(EQUIPMENT_COLUMN_ARMOR, armorName);
+		contentValues.put(EQUIPMENT_COLUMN_ACCESSORY_1, accNameOne);
+		contentValues.put(EQUIPMENT_COLUMN_ACCESSORY_2, accNameTwo);
 		
 		db.insert(EQUIPMENT_TABLE, null, contentValues);
 		
