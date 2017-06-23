@@ -56,7 +56,7 @@ public final class SaveGameContract{
 		/*
 		Table for storing names of equipped items
 		Each row will hold the equipment for a single character
-		This table will be accessed at character creation to add or overwrite a row,
+		This table will be accessed at character creation to add default equipment,
 			at save game loading to help instantiate the character, and when applicable info changes
 		*/
 		public static final String EQUIPMENT_TABLE= "equipment";
@@ -71,7 +71,7 @@ public final class SaveGameContract{
 		/*
 		Table for storing name of items in inventory
 		Each row will hold the name and quantity of a single item in a character's inventory
-		This table will be accessed at character creation to add or overwrite a row,
+		This table will be accessed at character creation to add default items,
 			at save game loading to help instantiate the character, and when applicable info changes
 		*/
 		public static final String INVENTORY_TABLE= "inventory";
@@ -80,5 +80,16 @@ public final class SaveGameContract{
 		public static final String INVENTORY_COLUMN_QUANTITY= "quan";
 	}
 	
-	
+	public static class QuestEntry{
+		/*
+		Table for storing names and completion status of quests undertaken
+		Each row will hold the name and completion status of a single quest for a character
+		This table will be accessed at character creation to add initial quest,
+			at save game loading to help instantiate the character, and when applicable info changes
+		*/
+		public static final String QUEST_TABLE= "quests";
+		public static final String QUEST_COLUMN_SAVE_ID= "quest_save_id";
+		public static final String QUEST_COLUMN_QUEST= "quest_name";
+		public static final String QUEST_COLUMN_COMPLETED= "quest_completion";
+	}
 }

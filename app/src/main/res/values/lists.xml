@@ -14,9 +14,16 @@
 		
 		<!-- Armors have a armor modifier extra attribute -->
 		<item>Armor # Leather Armor # Leather Armors # 5 # 0.15 # Armor made of leather.</item>
+		<item>Armor # Hide Vest     # Hide Vests     # 6 # 0.20 # A defensive vest made of thick hide.</item>
 		
 		<!-- Accessories have a buff name extra attribute -->
-		<item>Accessory # Unenchanted Ring # Unenchanted Rings # 1 # None # A nonmagical ring.</item>
+		<item>Accessory # Unenchanted Ring # Unenchanted Rings # 1  # None              # A nonmagical ring.</item>
+		<item>Accessory # Focusing Circlet # Focusing Circlets # 10 # Accurate          # Improves your accuracy.</item>
+		<item>Accessory # Heatproof Bracer # Heatproof Bracers # 10 # Light Fire Resist # A bracer that protects against fire.</item>
+		<item>Accessory # Insomnia Helm    # Insomnia Helms    # 10 # Sleepless         # Keeps you awake, no matter what.</item>
+		<item>Accessory # Fireproof Bracer # Fireproof Bracers # 10 # Fireproof         # Makes you immune to fire.</item>
+		<item>Accessory # Magic Coat       # Magic Coats       # 10 # Def Enchantment 1 # This coat is enchanted to act as extra armor.</item>
+		<item>Accessory # Shielding Amulet # Shielding Amulets # 10 # Def Enchantment 2 # This amulet protects you from damage.</item>
 		
 		<!-- Misc items are any items that cannot be directly used by the player -->
 		<item>Misc # Gem # Gems # 50 # A small gemstone. It sells for a high price.</item>
@@ -33,17 +40,21 @@
 		<item>Resist # Sleepless             # Sleep Resist  # Sleep  # 1.00 # Sleep is not a necessity for you.</item>
 		<item>Resist # Hard to Tire          # Sleep Resist  # Sleep  # 0.75 # Sleep does not come easy to you.</item>
 		<item>Resist # Hard to Sway          # Charm Resist  # Charm  # 0.25 # Charms do not work well against you.</item>
-		<item>Resist # None                  # None          # None   # 0.01 # Your attack power is slightly increaed.</item>
+		<item>Resist # Fireproof             # Fire Resist   # Fire   # 1.00 # You are immune to fire.</item>
+		<item>Resist # Light Fire Resist     # Fire Resist   # Fire   # 0.25 # Fire isn\'t as effective against you.</item>
+		<item>Resist # None                  # None          # None   # 0.01 # Your attack power is slightly increased.</item>
 		<!--<item>Resist # # # # #</item>-->
 		
 		<!-- Boost traits have boost type and boost percentage extra attributes -->
 		<!-- Attributes to boost: Crit Rate, Accuracy, Avoidance, Defense, Speed, Attack -->
-		<item>Boost # Opportunistic # Crit Rate Up # Crit Rate # 0.05 # You know how to take advantage of weak points.</item>
-		<item>Boost # Accurate      # Accuracy Up  # Accuracy  # 0.10 # You are more likely to hit.</item>
-		<item>Boost # Shield        # Avoid Up     # Avoidance # 0.05 # Your skill with a shield makes you harder to hit.</item>
-		<item>Boost # Aura Armor    # Def Up       # Defense   # 0.15 # You form armor from pure mana.</item>
-		<item>Boost # Well-Trained  # Atk Up       # Attack    # 0.15 # You know how to hit harder than most.</item>
-		<item>Boost # Learned       # Crit Rate Up # Crit Rate # 0.05 # Your studies let you know where best to hit enemies.</item>
+		<item>Boost # Opportunistic     # Crit Rate Up # Crit Rate # 0.05 # You know how to take advantage of weak points.</item>
+		<item>Boost # Accurate          # Accuracy Up  # Accuracy  # 0.10 # You are more likely to hit.</item>
+		<item>Boost # Shield            # Avoid Up     # Avoidance # 0.05 # Your skill with a shield makes you harder to hit.</item>
+		<item>Boost # Aura Armor        # Def Up       # Defense   # 0.15 # You form armor from pure mana.</item>
+		<item>Boost # Well-Trained      # Atk Up       # Attack    # 0.15 # You know how to hit harder than most.</item>
+		<item>Boost # Learned           # Crit Rate Up # Crit Rate # 0.05 # Your studies let you know where best to hit enemies.</item>
+		<item>Boost # Def Enchantment 1 # Def Up       # Defense   # 0.20 # You are shielded from danger more than normal.</item>
+		<item>Boost # Def Enchantment 2 # Def Up       # Defense   # 0.25 # You are shielded from danger more than normal.</item>
 		<!--<item>Boost #  #  #  #  #</item>-->
 	</string-array>
 	
@@ -63,13 +74,30 @@
 	</string-array>
 	
 	<string-array name="location_list">
-		<!--  -->
-		<item></item>
+		<!-- List of Locations as formatted strings -->
+		<!-- Format: name # display name # required quest # description #
+		 adjacent location names (comma delimited list) -->
+		<item>Euphoria Deck # Euphoria Deck # None # The deck of a cargo ship, The Euphoria. #
+			Captain\'s Quarters,Curiah City Docks</item>
 	</string-array>
 	
 	<string-array name="quest_list">
+		<!-- List of Quests as formatted strings -->
+		<!-- Format: name #  -->
 		<item></item>
 	</string-array>
+	
+	<!-- Starting Values -->
+	<integer name="starting_level">0</integer>
+	<integer name="starting_hp">20</integer>
+	<integer name="starting_str">10</integer>
+	<integer name="starting_sta">10</integer>
+	<integer name="starting_agi">10</integer>
+	<integer name="starting_speed">10</integer>
+	<integer name="starting_gold">50</integer>
+	<string name="starting_location">Euphoria Deck</string>
+	
+	<string name="default_status">Normal</string>
 	
 	<string-array name="default_equipment">
 		<item>Club</item>
@@ -79,8 +107,11 @@
 	</string-array>
 	
 	<string-array name="default_inventory">
-		<item>Mace        # 2</item>
-		<item>Gem         # 5</item>
-		<item>Dagger Hilt # 1</item>
+		<item>Mace             # 2</item>
+		<item>Hide Vest        # 1</item>
+		<item>Focusing Circlet # 1</item>
+		<item>Heatproof Bracer # 1</item>
+		<item>Gem              # 5</item>
+		<item>Dagger Hilt      # 1</item>
 	</string-array>
 </resources>

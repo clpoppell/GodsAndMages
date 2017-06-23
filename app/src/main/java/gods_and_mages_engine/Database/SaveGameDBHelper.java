@@ -14,6 +14,7 @@ import gods_and_mages_engine.App;
 import static gods_and_mages_engine.Database.SaveGameContract.EquipmentEntry.*;
 import static gods_and_mages_engine.Database.SaveGameContract.InventoryEntry.*;
 import static gods_and_mages_engine.Database.SaveGameContract.PlayerStatusEntry.*;
+import static gods_and_mages_engine.Database.SaveGameContract.QuestEntry.*;
 import static gods_and_mages_engine.Database.SaveGameContract.SaveEntry.*;
 import static gods_and_mages_engine.Database.SaveGameContract.StatsEntry.*;
 
@@ -63,6 +64,13 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 					INVENTORY_COLUMN_ITEM +" TEXT NOT NULL,"+
 					INVENTORY_COLUMN_QUANTITY +" INTEGER,"+
 					"PRIMARY KEY ("+ INVENTORY_COLUMN_SAVE_ID +","+ INVENTORY_COLUMN_ITEM +"))";
+	private static final String SQL_CREATE_QUEST_TABLE=
+			"CREATE TABLE "+ QUEST_TABLE + " ("+
+					QUEST_COLUMN_SAVE_ID +" INTEGER NOT NULL,"+
+					QUEST_COLUMN_QUEST +" TEXT NOT NULL,"+
+					QUEST_COLUMN_COMPLETED +" INTEGER NOT NULL,"+
+					"PRIMARY KEY ("+ QUEST_COLUMN_SAVE_ID +","+ QUEST_COLUMN_QUEST +"))";
+	
 	private static final String SQL_LOAD_QUERY=
 			"SELECT * FROM "+ SAVES_TABLE +","+ STATS_TABLE +","+ STATUS_TABLE +","+ EQUIPMENT_TABLE
 					+" WHERE "+ SAVES_TABLE +"."+ SAVES_COLUMN_SAVE_ID +"="+ STATS_TABLE +"."+ STATS_COLUMN_SAVE_ID
@@ -71,11 +79,15 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 					+" AND "+ SAVES_TABLE +"."+ SAVES_COLUMN_SAVE_ID +"=?";
 	private static final String SQL_LOAD_INVENTORY_QUERY=
 			"SELECT * FROM "+ INVENTORY_TABLE +" WHERE "+ INVENTORY_COLUMN_SAVE_ID +"=?";
+	private static final String SQL_LOAD_QUESTS_QUERY=
+			"SELECT * FROM "+ QUEST_TABLE +" WHERE "+ QUEST_COLUMN_SAVE_ID +"=?";
+	
 	private static final String SQL_DELETE_SAVES= " DROP TABLE IF EXISTS "+ SAVES_TABLE;
 	private	static final String SQL_DELETE_STATS= " DROP TABLE IF EXISTS "+ STATS_TABLE;
 	private static final String SQL_DELETE_STATUS= " DROP TABLE IF EXISTS "+ STATUS_TABLE;
 	private static final String SQL_DELETE_EQUIPMENT = " DROP TABLE IF EXISTS "+ EQUIPMENT_TABLE;
 	private static final String SQL_DELETE_INVENTORY= " DROP TABLE IF EXISTS "+ INVENTORY_TABLE;
+	private static final String SQL_DELETE_QUESTS= " DROP TABLE IF EXISTS "+ QUEST_TABLE;
 	//endregion
 	
 	private SaveGameDBHelper(Context context){ super(context, DATABASE_NAME, null, DATABASE_VERSION); }
@@ -92,16 +104,22 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		db.execSQL(SQL_CREATE_STATUS_TABLE);
 		db.execSQL(SQL_CREATE_EQUIPMENT_TABLE);
 		db.execSQL(SQL_CREATE_INVENTORY_TABLE);
+		db.execSQL(SQL_CREATE_QUEST_TABLE);
 	}
 	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+		/*
 		db.execSQL(SQL_DELETE_SAVES);
 		db.execSQL(SQL_DELETE_STATS);
 		db.execSQL(SQL_DELETE_STATUS);
 		db.execSQL(SQL_DELETE_EQUIPMENT);
 		db.execSQL(SQL_DELETE_INVENTORY);
+		db.execSQL(SQL_DELETE_QUESTS);
 		onCreate(db);
+		*/
+		
+		db.execSQL(SQL_CREATE_QUEST_TABLE); // temp
 	}
 	
 	// Called to erase a single save file
@@ -224,16 +242,6 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		db.close();
 	}
 	
-	public void updateLocation(int saveID, String locationName){
-		SQLiteDatabase db= getWritableDatabase();
-		ContentValues contentValues= new ContentValues();
-		
-		contentValues.put(STATUS_COLUMN_LOCATION, locationName);
-		
-		db.update(STATUS_TABLE, contentValues, STATUS_COLUMN_SAVE_ID +"=?", new String[]{ Integer.toString(saveID) });
-		db.close();
-	}
-	
 	public void updateStatus(int saveID, int gold, int exp, int currentHP, String status){
 		SQLiteDatabase db= getWritableDatabase();
 		ContentValues contentValues= new ContentValues();
@@ -251,10 +259,20 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		SQLiteDatabase db= getWritableDatabase();
 		ContentValues contentValues= new ContentValues();
 		
-		if(equipmentSlot.equals("Weapon")){ contentValues.put(EQUIPMENT_COLUMN_WEAPON, equipmentName); }
-		else if(equipmentSlot.equals("Armor")){ contentValues.put(EQUIPMENT_COLUMN_ARMOR, equipmentName); }
-		else if(equipmentSlot.equals("Acc1")){ contentValues.put(EQUIPMENT_COLUMN_ACCESSORY_1, equipmentName); }
-		else if(equipmentSlot.equals("Acc2")){ contentValues.put(EQUIPMENT_COLUMN_ACCESSORY_2, equipmentName); }
+		switch(equipmentSlot){
+			case "Weapon":
+				contentValues.put(EQUIPMENT_COLUMN_WEAPON, equipmentName);
+				break;
+			case "Armor":
+				contentValues.put(EQUIPMENT_COLUMN_ARMOR, equipmentName);
+				break;
+			case "Acc1":
+				contentValues.put(EQUIPMENT_COLUMN_ACCESSORY_1, equipmentName);
+				break;
+			case "Acc2":
+				contentValues.put(EQUIPMENT_COLUMN_ACCESSORY_2, equipmentName);
+				break;
+		}
 		
 		db.update(EQUIPMENT_TABLE, contentValues, EQUIPMENT_COLUMN_SAVE_ID +"=?", new String[]{ Integer.toString(saveID) });
 		db.close();
@@ -266,7 +284,6 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 			String selection= INVENTORY_COLUMN_SAVE_ID +"=? AND "+ INVENTORY_COLUMN_ITEM +"=?";
 			String[] selectionArgs= new String[]{ Integer.toString(saveID), itemName };
 			db.delete(INVENTORY_TABLE, selection, selectionArgs);
-			return;
 		}
 		else{
 			ContentValues contentValues= new ContentValues();
@@ -280,6 +297,38 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		}
 	}
 	
+	public void updateLocation(int saveID, String locationName){
+		SQLiteDatabase db= getWritableDatabase();
+		ContentValues contentValues= new ContentValues();
+		
+		contentValues.put(STATUS_COLUMN_LOCATION, locationName);
+		
+		db.update(STATUS_TABLE, contentValues, STATUS_COLUMN_SAVE_ID +"=?", new String[]{ Integer.toString(saveID) });
+		db.close();
+	}
+	
+	public void addQuest(int saveID, String questName){
+		SQLiteDatabase db= getWritableDatabase();
+		ContentValues contentValues= new ContentValues();
+		
+		contentValues.put(QUEST_COLUMN_SAVE_ID, saveID);
+		contentValues.put(QUEST_COLUMN_QUEST, questName);
+		contentValues.put(QUEST_COLUMN_COMPLETED, 0);
+		
+		db.insert(QUEST_TABLE, null, contentValues);
+		db.close();
+	}
+	
+	public void setQuestCompleted(int saveID, String questName){
+		SQLiteDatabase db= getWritableDatabase();
+		ContentValues contentValues= new ContentValues();
+		
+		contentValues.put(QUEST_COLUMN_COMPLETED, 1);
+		
+		db.update(QUEST_TABLE, contentValues, QUEST_COLUMN_SAVE_ID +"=? AND "+ QUEST_COLUMN_QUEST +"=?",
+				new String[]{ Integer.toString(saveID), questName});
+	}
+	
 	public String[] loadSave(int saveID){
 		String[] charInfo= new String[SAVE_FILE_SIZE];
 		SQLiteDatabase db= this.getReadableDatabase();
@@ -290,17 +339,20 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 			charInfo[1]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_RACE));
 			charInfo[2]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_CLASS));
 			charInfo[3]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_JOB));
+			
 			charInfo[4]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_LEVEL));
 			charInfo[5]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_MAXHP));
 			charInfo[6]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_STRENGTH));
 			charInfo[7]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_STAMINA));
 			charInfo[8]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_AGILITY));
 			charInfo[9]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_SPEED));
+			
 			charInfo[10]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_LOCATION));
 			charInfo[11]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_GOLD));
 			charInfo[12]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_EXP));
 			charInfo[13]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_CURRENT_HP));
 			charInfo[14]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_STATUS));
+			
 			charInfo[15]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_WEAPON));
 			charInfo[16]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_ARMOR));
 			charInfo[17]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_ACCESSORY_1));
@@ -322,6 +374,8 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		while(cursor.moveToNext()){
 			itemMap.put(cursor.getString(itemNamePos), cursor.getInt(quanPos));
 		}
+		cursor.close();
+		
 		return itemMap;
 	}
 }

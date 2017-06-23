@@ -12,9 +12,10 @@ import gods_and_mages_engine.Items.*;
 import gods_and_mages_engine.Player_Char.CharClass;
 import gods_and_mages_engine.Player_Char.CharJob;
 import gods_and_mages_engine.Player_Char.CharRace;
+import gods_and_mages_engine.Quests.BaseQuest;
 
 public final class World{
-	/*
+	/**
 	This class provides various objects needed to create the player character,
 		populate battle encounters, handle inventory and shop systems, etc
 	*/
@@ -27,6 +28,9 @@ public final class World{
 	private static final Map<String, BaseItem> ITEM_LIST= populateItemList();
 	
 	private static final Map<String, Location> LOCATION_LIST= populateLocationList();
+	private static final Map<String, BaseQuest> QUEST_LIST= populateQuestList();
+	
+	private World(){}
 	
 	//region Make Characteristics Methods
 	public static CharRace makeCharRace(String charRaceName){
@@ -37,19 +41,19 @@ public final class World{
 		switch(charRaceName){
 			case "Human": raceInfo= RES.getIntArray(R.array.stat_mods_human);
 				traits= RES.getStringArray(R.array.traits_human);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_human);
 				charRace= new CharRace(charRaceName, RES.getString(R.string.desc_human), traits,
 						abilities, raceInfo[0], raceInfo[1], raceInfo[2], raceInfo[3]);
 				break;
 			case "Elf": raceInfo= RES.getIntArray(R.array.stat_mods_elf);
 				traits= RES.getStringArray(R.array.traits_elf);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_elf);
 				charRace= new CharRace(charRaceName, RES.getString(R.string.desc_elf), traits,
 						abilities, raceInfo[0], raceInfo[1], raceInfo[2], raceInfo[3]);
 				break;
 			case "Dwarf": raceInfo= RES.getIntArray(R.array.stat_mods_dwarf);
 				traits= RES.getStringArray(R.array.traits_dwarf);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_dwarf);
 				charRace= new CharRace(charRaceName, RES.getString(R.string.desc_dwarf), traits,
 						abilities, raceInfo[0], raceInfo[1], raceInfo[2], raceInfo[3]);
 				break;
@@ -65,17 +69,17 @@ public final class World{
 		switch(charClassName){
 			case "Fighter":
 				traits= RES.getStringArray(R.array.traits_fighter);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_fighter);
 				charClass= new CharClass(charClassName, RES.getString(R.string.desc_fighter), traits, abilities, RES.getInteger(R.integer.hp_mod_fighter));
 				break;
 			case "Rogue":
 				traits= RES.getStringArray(R.array.traits_rogue);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_rogue);
 				charClass= new CharClass(charClassName, RES.getString(R.string.desc_rogue), traits, abilities, RES.getInteger(R.integer.hp_mod_rogue));
 				break;
 			case "Mage":
 				traits= RES.getStringArray(R.array.traits_mage);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_mage);
 				charClass= new CharClass(charClassName, RES.getString(R.string.desc_mage), traits, abilities, RES.getInteger(R.integer.hp_mod_mage));
 				break;
 			default: charClass= new CharClass("Needs Entry", "Needs Desc", null, null, 0);
@@ -90,17 +94,17 @@ public final class World{
 		switch(charJobName){
 			case "Soldier":
 				traits= RES.getStringArray(R.array.traits_soldier);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_soldier);
 				charJob= new CharJob(charJobName, RES.getString(R.string.desc_soldier), traits, abilities);
 				break;
 			case "Spy":
 				traits= RES.getStringArray(R.array.traits_spy);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_spy);
 				charJob= new CharJob(charJobName, RES.getString(R.string.desc_spy), traits, abilities);
 				break;
 			case "Scholar":
 				traits= RES.getStringArray(R.array.traits_scholar);
-				abilities= null;
+				abilities= RES.getStringArray(R.array.abilities_scholar);
 				charJob= new CharJob(charJobName, RES.getString(R.string.desc_scholar), traits, abilities);
 				break;
 			default: charJob= new CharJob("Needs Entry", "Needs Desc", null, null);
@@ -110,8 +114,10 @@ public final class World{
 	//endregion
 	
 	//region Populate Lists Methods
-	// Takes trait strings from lists.xml and splits them to obtain trait information,
-	// constructs BaseTrait objects using this information, and adds objects to TRAIT_LIST
+	/**
+	 * Takes trait strings from lists.xml and splits them to obtain trait information,
+	 * constructs BaseTrait objects using this information, and adds objects to TRAIT_LIST
+	 */
 	private static Map<String,BaseTrait> populateTraitList(){
 		Map<String, BaseTrait> traits= new HashMap<String, BaseTrait>();
 		String[] traitStrings= RES.getStringArray(R.array.trait_list);
@@ -132,9 +138,11 @@ public final class World{
 		}
 		return traits;
 	}
-	
-	// Takes ability strings from lists.xml and splits them to obtain ability information,
-	// constructs BaseAbility objects using this information, and adds objects to ABILITY_LIST
+
+	/**
+	 * Takes ability strings from lists.xml and splits them to obtain ability information,
+	 * constructs BaseAbility objects using this information, and adds objects to ABILITY_LIST
+	 */
 	private static Map<String, BaseAbility> populateAbilityList(){
 		Map<String, BaseAbility> abilities= new HashMap<String, BaseAbility>();
 		String[] abilityStrings= RES.getStringArray(R.array.ability_list);
@@ -153,8 +161,10 @@ public final class World{
 		return abilities;
 	}
 	
-	// Takes item strings from lists.xml and splits them to obtain item information,
-	// constructs BaseItem objects using this information, and adds objects to ITEM_LIST
+	/**
+	 * Takes item strings from lists.xml and splits them to obtain item information,
+	 * constructs BaseItem objects using this information, and adds objects to ITEM_LIST
+	 */
 	private static Map<String, BaseItem> populateItemList(){
 		Map<String, BaseItem> items= new HashMap<String, BaseItem>();
 		String[] itemStrings= RES.getStringArray(R.array.item_list);
@@ -192,13 +202,32 @@ public final class World{
 		return items;
 	}
 	
-	// Takes location strings from lists.xml and splits them to obtain location information,
-	// constructs Location objects using this information, and adds objects to LOCATION_LIST
-	private static Map<String,Location> populateLocationList(){
+	/**
+	 * Takes location strings from lists.xml and splits them to obtain location information,
+	 * constructs Location objects using this information, and adds objects to LOCATION_LIST
+	 */
+	private static Map<String, Location> populateLocationList(){
 		Map<String, Location> locations= new HashMap<String, Location>();
-		String[] itemStrings= RES.getStringArray(R.array.location_list);
-		String[] itemInfo;
-		return null;
+		String[] locStrings= RES.getStringArray(R.array.location_list);
+		String[] locInfo;
+		
+		for(String loc : locStrings){
+			locInfo= loc.split(" # ");
+			locations.put(locInfo[0].trim(), new Location(locInfo[0].trim(), locInfo[1].trim(),
+					locInfo[3], locInfo[2].trim(), locInfo[4].split(",")));
+		}
+		
+		return locations;
+	}
+	
+	/**
+	 * Takes quest strings from lists.xml and splits them to obtain quest information,
+	 * constructs BaseQuest objects using this information, and adds objects to QUEST_LIST
+	 */
+	private static Map<String, BaseQuest> populateQuestList(){
+		Map<String, BaseQuest> quests= new HashMap<String, BaseQuest>();
+		
+		return quests;
 	}
 	//endregion
 	
@@ -208,5 +237,9 @@ public final class World{
 	public static BaseTrait getTrait(String traitName){ return TRAIT_LIST.get(traitName); }
 	
 	public static BaseAbility getAbility(String abilityName){ return ABILITY_LIST.get(abilityName); }
+	
+	public static Location getLocation(String locationName){ return LOCATION_LIST.get(locationName); }
+	
+	public static BaseQuest getQuest(String questName){ return QUEST_LIST.get(questName); }
 	//endregion
 }

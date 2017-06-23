@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string-array name="race_list">
+		<item>Human</item>
+		<item>Elf</item>
+		<item>Dwarf</item>
+	</string-array>
+	
+	<string-array name="class_list">
+		<item>Fighter</item>
+		<item>Rogue</item>
+		<item>Mage</item>
+	</string-array>
+	
+	<string-array name="job_list">
+		<item>Soldier</item>
+		<item>Spy</item>
+		<item>Scholar</item>
+	</string-array>
+	
 	<!-- Race Traits -->
 	<string-array name="traits_human">
 		<item>Opportunistic</item>
@@ -9,6 +27,17 @@
 	</string-array>
 	<string-array name="traits_dwarf">
 		<item>Poison Resistance 25%</item>
+	</string-array>
+	
+	<!-- Race Abilities -->
+	<string-array name="abilities_human">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_elf">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_dwarf">
+		<item></item>
 	</string-array>
 	
 	<!-- Class Traits -->
@@ -22,6 +51,17 @@
 		<item>Aura Armor</item>
 	</string-array>
 	
+	<!-- Class Abilities -->
+	<string-array name="abilities_fighter">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_rogue">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_mage">
+		<item></item>
+	</string-array>
+	
 	<!-- Job Traits -->
 	<string-array name="traits_soldier">
 		<item>Well-Trained</item>
@@ -31,5 +71,16 @@
 	</string-array>
 	<string-array name="traits_scholar">
 		<item>Learned</item>
+	</string-array>
+	
+	<!-- Race Abilities -->
+	<string-array name="abilities_soldier">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_spy">
+		<item></item>
+	</string-array>
+	<string-array name="abilities_scholar">
+		<item></item>
 	</string-array>
 </resources>

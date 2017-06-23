@@ -18,7 +18,7 @@ public abstract class LivingCreature{
 	protected String status;
 	protected boolean canBattle= true;
 	
-	protected Map<String, BaseTrait> traits= new LinkedHashMap<String, BaseTrait>();
+	protected Map<String, BaseTrait> traits;
 	protected Map<String, BaseAbility> abilities= new LinkedHashMap<String, BaseAbility>();
 	
 	//Base Stats

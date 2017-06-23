@@ -23,4 +23,5 @@
 	<string name="info_about">Copyright Tad Bolmont</string>
 	<string name="title_activity_game">GameActivity</string>
 	<string name="section_format">Hello World from section: %1$d</string>
+	<string name="title_inventory">Inventory</string>
 </resources>

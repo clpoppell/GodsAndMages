@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string-array name="delete_options">Yes, No</string-array>
-	<string-array name="race_list">
-		<item>Human</item>
-		<item>Elf</item>
-		<item>Dwarf</item>
-	</string-array>
-	<string-array name="class_list">
-		<item>Fighter</item>
-		<item>Rogue</item>
-		<item>Mage</item>
-	</string-array>
-	<string-array name="job_list">
-		<item>Soldier</item>
-		<item>Spy</item>
-		<item>Scholar</item>
-	</string-array>
 </resources>

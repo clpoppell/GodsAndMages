@@ -7,9 +7,11 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import gods_and_mages_engine.Battle;
+import gods_and_mages_engine.Items.InventoryItem;
 import gods_and_mages_engine.Monster;
 import gods_and_mages_engine.Player_Char.Player;
 
@@ -29,7 +31,10 @@ public class MainScreen extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_screen);
 		
-		//Get the Intent that started this activity and extract the extras
+		// Sets textView's scrolling movement
+		
+		
+		// Get the Intent that started this activity and extract the extras
 		Intent intent = getIntent();
 		id= intent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, 0);
 		
@@ -48,34 +53,68 @@ public class MainScreen extends BaseActivity{
 		
 		battle= new Battle(mList);
 		
-		//TextView textView= (TextView)findViewById(R.id.textView);
-		//textView.append(pc.toString() +"\n\n");
-	}
-	
-	public void encounter(View view){
-		battle.pcAttack(2);
-		battle.pcAttack(0);
-		battle.pcAttack(1);
-		
-		TextView textView= (TextView)findViewById(R.id.textView);
-		textView.append(battle.printResults() +"\n");
-		scroll();
-	}
-	
-	public void talk(View view){
-		pc.addExp(20);
 		TextView textView= (TextView)findViewById(R.id.textView);
 		textView.setText(pc.toString() +"\n\n");
 		
 		scroll();
+		
+		//TextView textView= (TextView)findViewById(R.id.textView);
+		//textView.append(pc.toString() +"\n\n");
 	}
 	
-	public void beginBattle(View view){
+	// Level Up
+	public void talk(View view){
+		pc.addExp(50);
 		
+		showPlayer();
+		scroll();
+	}
+	
+	// Start Battle
+	public void beginBattle(View view){
+		pc.changeAccessory("Focusing Circlet", 1);
+		
+		showPlayer();
+		scroll();
+	}
+	
+	// Fight
+	public void encounter(View view){
+		pc.changeLocation("Captain's Quarters");
+		
+	//	showPlayer();
+		
+		/*battle.pcAttack(2);
+		battle.pcAttack(0);
+		battle.pcAttack(1);
+		
+		TextView textView= (TextView)findViewById(R.id.textView);
+		textView.append(battle.printResults() +"\n");*/
+		scroll();
+	}
+	
+	// Inventory
+	public void displayInventory(View view){
+		String string= "";
+		Iterator<InventoryItem> iterate2= pc.getInventory().values().iterator();
+		while(iterate2.hasNext()){
+			InventoryItem item= iterate2.next();
+			string += item.toString() +"\n";
+		}
+		
+		TextView textView= (TextView)findViewById(R.id.textView);
+		textView.setText(string +"\n\n");
+		
+		scroll();
+	}
+	
+	private void showPlayer(){
+		TextView textView= (TextView)findViewById(R.id.textView);
+		textView.setText(pc.toString() +"\n\n");
 	}
 	
 	private void scroll(){
-		ScrollView sv= (ScrollView)findViewById(R.id.scrollView2);
+		ScrollView sv= (ScrollView)findViewById(R.id.scrollView);
 		sv.fullScroll(ScrollView.FOCUS_DOWN);
 	}
 }

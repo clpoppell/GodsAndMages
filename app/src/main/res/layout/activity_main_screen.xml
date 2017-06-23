@@ -7,78 +7,105 @@
 	android:layout_height="match_parent"
 	tools:context="com.tadbolmont.homecoming.MainScreen">
 	
-	<TextView
-		android:id="@+id/textView"
+	<ScrollView
+		android:id="@+id/scrollView"
 		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_marginBottom="8dp"
-		android:layout_marginLeft="8dp"
-		android:layout_marginRight="8dp"
+		android:layout_height="0dp"
 		android:layout_marginTop="8dp"
-		android:layout_weight="0.75"
-		android:scrollbars="vertical"
-		android:textSize="18sp"
-		app:layout_constraintBottom_toTopOf="@+id/talkBtn"
 		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
-		android:layout_marginStart="8dp"
-		android:layout_marginEnd="8dp"/>
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintBottom_toTopOf="@+id/setupBattleBtn"
+		app:layout_constraintHorizontal_bias="0.0"
+		android:layout_marginBottom="8dp"
+		android:layout_marginRight="8dp"
+		android:layout_marginLeft="8dp">
+		
+		<TextView
+			android:id="@+id/textView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="8dp"
+			android:layout_marginEnd="8dp"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:textSize="18sp"/>
+	</ScrollView>
 	
 	<Button
 		android:id="@+id/talkBtn"
 		style="@style/Widget.AppCompat.Button.Colored"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="8dp"
-		android:layout_marginEnd="8dp"
-		android:layout_marginLeft="8dp"
-		android:layout_marginRight="8dp"
-		android:layout_marginStart="8dp"
 		android:layout_weight="0.75"
 		android:background="@color/colorPrimaryDark"
 		android:onClick="talk"
 		android:text="Level Up"
-		app:layout_constraintBottom_toTopOf="@+id/encounterBtn"
-		app:layout_constraintHorizontal_bias="0.0"
+		android:layout_marginTop="8dp"
+		app:layout_constraintTop_toBottomOf="@+id/setupBattleBtn"
+		app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+		app:layout_constraintRight_toRightOf="parent"
 		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"/>
+		android:layout_marginLeft="8dp"
+		android:layout_marginRight="8dp"/>
 	
 	<Button
 		android:id="@+id/setupBattleBtn"
 		style="@style/Widget.AppCompat.Button.Colored"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="8dp"
-		android:layout_marginEnd="8dp"
-		android:layout_marginLeft="8dp"
-		android:layout_marginRight="8dp"
-		android:layout_marginStart="8dp"
 		android:background="@color/colorPrimaryDark"
 		android:onClick="beginBattle"
 		android:text="Start Battle"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintTop_toBottomOf="@+id/scrollView"
+		app:layout_constraintBottom_toTopOf="@+id/talkBtn"
+		app:layout_constraintRight_toRightOf="parent"
 		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"/>
+		app:layout_constraintHorizontal_bias="0.0"
+		android:layout_marginRight="8dp"
+		android:layout_marginLeft="8dp"/>
 	
-	<Button
-		android:id="@+id/encounterBtn"
-		style="@style/Widget.AppCompat.Button.Colored"
+	<LinearLayout
+		android:id="@+id/linearLayout"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="8dp"
-		android:layout_marginEnd="8dp"
-		android:layout_marginLeft="8dp"
-		android:layout_marginRight="8dp"
-		android:layout_marginStart="8dp"
-		android:layout_weight="0.75"
-		android:background="@color/colorPrimaryDark"
-		android:onClick="encounter"
-		android:text="Fight"
-		app:layout_constraintBottom_toTopOf="@+id/setupBattleBtn"
-		app:layout_constraintHorizontal_bias="0.0"
+		android:layout_marginTop="8dp"
+		android:orientation="horizontal"
+		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"/>
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/talkBtn"
+		android:layout_marginRight="8dp"
+		android:layout_marginLeft="8dp">
+		
+		<Button
+			android:id="@+id/encounterBtn"
+			style="@style/Widget.AppCompat.Button.Colored"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginRight="4dp"
+			android:background="@color/colorPrimaryDark"
+			android:onClick="encounter"
+			android:text="Fight"
+			tools:layout_editor_absoluteX="40dp"
+			tools:layout_editor_absoluteY="82dp"/>
+		
+		<Button
+			android:id="@+id/inventoryBtn"
+			style="@style/Widget.AppCompat.Button.Colored"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="4dp"
+			android:layout_weight="1"
+			android:background="@color/colorPrimaryDark"
+			android:onClick="displayInventory"
+			android:text="@string/title_inventory"
+			tools:layout_editor_absoluteX="23dp"
+			tools:layout_editor_absoluteY="-96dp"/>
+	</LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

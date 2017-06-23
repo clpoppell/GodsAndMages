@@ -4,26 +4,32 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Location{
-	private String name;
-	private String buttonName;
-	private String description;
-//	public Vendor vendorWorkingHere;
-//	public Quest questRequiredToEnter;
-//	public Quest questAvailableHere;
+	public final String name;
+	public final String buttonName;
+	public final String description;
+	public final String questRequired;
 	
-	private Map<String, Integer> monstersLivingHere= new HashMap<String, Integer>();
+	private final String[] adjacentLocations;
+	private final String[] monsters= new String[10];
+//	public final Vendor vendorWorkingHere;
+//	public final BaseQuest questRequiredToEnter;
+//	public final BaseQuest questAvailableHere;
 	
-	private Location locationToNorth;
-	private Location locationToEast;
-	private Location locationToSouth;
-	private Location locationToWest;
+	public final Map<String, Integer> monstersLivingHere= new HashMap<String, Integer>();
 	
-	public Location(String name, String buttonName, String description/*,
-			Quest questRequiredToEnter, Quest questAvailableHere*/){
+	public Location(String name, String buttonName, String description, String questRequired,
+					String[] adjacentLocations/*, BaseQuest questAvailableHere*/){
 		this.name= name;
 		this.buttonName= buttonName;
 		this.description= description;
+		this.questRequired= questRequired;
+		this.adjacentLocations= adjacentLocations;
 		/*this.questRequiredToEnter= questRequiredToEnter;
 		this.questAvailableHere= questAvailableHere;*/
+	}
+	
+	@Override
+	public String toString(){
+		return name +": "+ description;
 	}
 }

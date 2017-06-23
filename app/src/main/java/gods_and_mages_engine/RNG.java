@@ -2,6 +2,9 @@ package gods_and_mages_engine;
 
 import java.util.Random;
 
+/**
+ * Convenience class for producing pseudo-random values
+ */
 public class RNG{
 	private static Random random= new Random();
 	
@@ -11,9 +14,7 @@ public class RNG{
 		return minimumValue + randomValueInRange;
 	}
 	
-	public static int numberUnder(int value){
-		return random.nextInt(value);
-	}
+	public static int numberUnder(int value){ return random.nextInt(value); }
 	
 	public static boolean coinFlip(){ return random.nextBoolean(); }
 }

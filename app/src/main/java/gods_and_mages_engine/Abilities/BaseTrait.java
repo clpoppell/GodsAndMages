@@ -2,26 +2,22 @@ package gods_and_mages_engine.Abilities;
 
 // Base class for all traits
 public abstract class BaseTrait{
-	private final String key; // Unique name used to identify trait
-	private final String traitName; // Name shared among all traits that provide a similar buff
-	private final String desc;
+	public final String key; // Unique name used to identify trait
+	public final String traitClass; // Name shared among all traits that provide a similar buff
+	public final String desc;
 	
-	public BaseTrait(String key, String traitName, String desc){
+	public BaseTrait(String key, String traitClass, String desc){
 		this.key= key;
-		this.traitName= traitName;
+		this.traitClass = traitClass;
 		this.desc= desc;
 	}
-	
-	public String getKey(){ return key; }
-	
-	public String getTraitName(){ return traitName; }
 	
 	public abstract double getPercentage();
 	
 	@Override
 	public boolean equals(Object o){
 		if(o instanceof BaseTrait && o != null){
-			if(((BaseTrait)o).getTraitName().equals(getTraitName())){ return true; }
+			if(((BaseTrait)o).traitClass.equals(traitClass)){ return true; }
 		}
 		return false;
 	}
@@ -29,7 +25,7 @@ public abstract class BaseTrait{
 	@Override
 	public int hashCode(){
 		int result= 17;
-		return 31 * result + getTraitName().hashCode();
+		return 31 * result + traitClass.hashCode();
 	}
 	
 	@Override
