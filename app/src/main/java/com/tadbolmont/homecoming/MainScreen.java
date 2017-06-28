@@ -13,11 +13,13 @@ import java.util.List;
 import gods_and_mages_engine.Battle;
 import gods_and_mages_engine.Items.InventoryItem;
 import gods_and_mages_engine.Monster;
-import gods_and_mages_engine.Player_Char.Player;
+import gods_and_mages_engine.Player_Char.PlayerCharacter;
+import gods_and_mages_engine.Quests.BaseQuest;
+import gods_and_mages_engine.World;
 
 public class MainScreen extends BaseActivity{
 	private int id;
-	private Player pc;
+	private PlayerCharacter pc;
 	private Battle battle;
 	
 	//temp
@@ -42,7 +44,7 @@ public class MainScreen extends BaseActivity{
 	}
 	
 	private void setupPlayerCharacter(){
-		pc= Player.getPlayer();
+		pc= PlayerCharacter.getPlayerCharacter();
 		m= new Monster("Goblin", "", 30, 15, 15, 25, 20, 4, 20);
 		m2= new Monster("Spider", "", 5, 15, 15, 25, 20, 4, 20);
 		m3= new Monster("Rat", "", 30, 15, 15, 25, 20, 4, 20);
@@ -64,7 +66,7 @@ public class MainScreen extends BaseActivity{
 	
 	// Level Up
 	public void talk(View view){
-		pc.addExp(50);
+		pc.addItemToInventory("Gem", 1);
 		
 		showPlayer();
 		scroll();
@@ -72,7 +74,11 @@ public class MainScreen extends BaseActivity{
 	
 	// Start Battle
 	public void beginBattle(View view){
-		pc.changeAccessory("Focusing Circlet", 1);
+		String questName= "Find A Gem";
+		if(pc.checkQuest(questName) == BaseQuest.QuestStatus.QUEST_IN_PROGRESS){
+			BaseQuest quest= World.getQuest(questName);
+			quest.completeQuest();
+		}
 		
 		showPlayer();
 		scroll();
@@ -81,15 +87,6 @@ public class MainScreen extends BaseActivity{
 	// Fight
 	public void encounter(View view){
 		pc.changeLocation("Captain's Quarters");
-		
-	//	showPlayer();
-		
-		/*battle.pcAttack(2);
-		battle.pcAttack(0);
-		battle.pcAttack(1);
-		
-		TextView textView= (TextView)findViewById(R.id.textView);
-		textView.append(battle.printResults() +"\n");*/
 		scroll();
 	}
 	

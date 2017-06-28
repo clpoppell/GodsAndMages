@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import gods_and_mages_engine.Player_Char.Player;
+import gods_and_mages_engine.Player_Char.PlayerCharacter;
 
 public class CreateCharacter extends BaseActivity implements AdapterView.OnItemSelectedListener{
 	public static final String EXTRA_MESSAGE= "com.tadbolmont.homecoming.MESSAGE";
@@ -86,7 +86,7 @@ public class CreateCharacter extends BaseActivity implements AdapterView.OnItemS
 		int id= pIntent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, 0);
 		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, id);
 		
-		Player.makePlayer(id, new String[]{ editText.getText().toString(), raceSpinner.getSelectedItem().toString(),
+		PlayerCharacter.makePlayer(id, new String[]{ editText.getText().toString(), raceSpinner.getSelectedItem().toString(),
 				classSpinner.getSelectedItem().toString(), jobSpinner.getSelectedItem().toString() });
 		
 		startActivity(intent);

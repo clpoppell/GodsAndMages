@@ -1,39 +1,27 @@
 package gods_and_mages_engine.Items;
 
+/**
+ * Stores a BaseItem object along with the quantity of the item in the player character's inventory.
+ */
 public class InventoryItem{
-	private final BaseItem details;
+	/** The baseItem represented by this */
+	private final BaseItem item;
 	private int quantity;
 	
-	public InventoryItem(BaseItem details, int quantity){
-		this.details= details;
+	public InventoryItem(BaseItem item, int quantity){
+		this.item= item;
 		this.quantity= quantity;
 	}
 	
-	public String getKey(){ return details.getKey(); }
-	
-	public String getName(){ return quantity > 1 ? details.getNamePlural() : details.getName(); }
+	/** @return {@code item.namePlural} if {@code quantity} greater than 1, otherwise {@code item.name} */
+	public String getName(){ return quantity > 1 ? item.namePlural : item.name; }
 	
 	public int getQuantity(){ return quantity; }
 	
-	public void changeQuantity(int amount){ quantity += amount; }
-	
-	@Override
-	public boolean equals(Object o){
-		if(o instanceof BaseItem && o != null){
-			InventoryItem item= (InventoryItem)o;
-			if(item.details.equals(this)){ return true; }
-		}
-		return false;
-	}
-	
-	@Override
-	public int hashCode(){
-		int result= 17;
-		return 31 * result + getKey().hashCode();
-	}
+	public void changeQuantity(int amountToChange){ quantity += amountToChange; }
 	
 	@Override
 	public String toString(){
-		return getName() +": "+ getQuantity();
+		return getName() +": "+ quantity;
 	}
 }

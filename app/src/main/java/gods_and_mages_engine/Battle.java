@@ -6,14 +6,14 @@ import java.util.Comparator;
 import java.util.List;
 
 import gods_and_mages_engine.Abilities.AttackAbility;
-import gods_and_mages_engine.Player_Char.Player;
+import gods_and_mages_engine.Player_Char.PlayerCharacter;
 
 public class Battle{
 	private enum battleEndState{ Continue, MonsterWin, PlayerWin }
 	private battleEndState continueBattle= battleEndState.Continue;
 	private int index= 0;
 	
-	private Player pc= Player.getPlayer();
+	private PlayerCharacter pc= PlayerCharacter.getPlayerCharacter();
 //	private Location location;
 	
 	private LivingCreature currentTurn;
@@ -53,7 +53,7 @@ public class Battle{
 			currentTurn= battleList.get(index);
 			index++;
 			
-			if(currentTurn instanceof Player){ break; }
+			if(currentTurn instanceof PlayerCharacter){ break; }
 			else{
 				if(currentTurn.canBattle){
 					//temporary

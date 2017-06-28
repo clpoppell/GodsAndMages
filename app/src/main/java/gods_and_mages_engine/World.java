@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import com.tadbolmont.homecoming.R;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import gods_and_mages_engine.Abilities.*;
@@ -13,22 +14,24 @@ import gods_and_mages_engine.Player_Char.CharClass;
 import gods_and_mages_engine.Player_Char.CharJob;
 import gods_and_mages_engine.Player_Char.CharRace;
 import gods_and_mages_engine.Quests.BaseQuest;
+import gods_and_mages_engine.Quests.CollectQuest;
 
+/**
+ * This class provides various objects needed to create the player character,
+ * populate battle encounters, handle inventory and shop systems, etc
+ */
 public final class World{
-	/**
-	This class provides various objects needed to create the player character,
-		populate battle encounters, handle inventory and shop systems, etc
-	*/
 	public static final int UNSELLABLE_ITEM_PRICE= -1;
 	private static final Resources RES= App.context.getResources();
 	
-	// Collections
+	//region Collections
 	private static final Map<String, BaseTrait> TRAIT_LIST= populateTraitList();
 	private static final Map<String, BaseAbility> ABILITY_LIST = populateAbilityList();
 	private static final Map<String, BaseItem> ITEM_LIST= populateItemList();
 	
 	private static final Map<String, Location> LOCATION_LIST= populateLocationList();
 	private static final Map<String, BaseQuest> QUEST_LIST= populateQuestList();
+	//endregion
 	
 	private World(){}
 	
@@ -174,7 +177,8 @@ public final class World{
 			itemInfo= item.split(" # ");
 			switch(itemInfo[0]){
 				case "Recovery":
-					
+					items.put(itemInfo[1].trim(), new RecoveryItem(itemInfo[1].trim(), itemInfo[2].trim(), itemInfo[6],
+							Integer.parseInt(itemInfo[3]), Double.parseDouble(itemInfo[4])));
 					break;
 				case "Usable": // possible split
 					break;
@@ -226,7 +230,32 @@ public final class World{
 	 */
 	private static Map<String, BaseQuest> populateQuestList(){
 		Map<String, BaseQuest> quests= new HashMap<String, BaseQuest>();
+		String[] questStrings= RES.getStringArray(R.array.quest_list);
+		String[] questInfo;
 		
+		String[] rewardItemList;
+		Map<String, Integer> rewardItems;
+		
+		for(String quest : questStrings){
+			questInfo= quest.split(" # ");
+			
+			rewardItems= new LinkedHashMap<String, Integer>();
+			rewardItemList= questInfo[7].split(",");
+			
+			for(String itemInfo : rewardItemList){
+				String[] rewardItemInfo= itemInfo.split(" - ");
+				String itemName= rewardItemInfo[0];
+				int itemAmount= Integer.parseInt(rewardItemInfo[1]);
+				rewardItems.put(itemName, itemAmount);
+			}
+			switch(questInfo[0]){
+				case "Collect":
+					quests.put(questInfo[1].trim(), new CollectQuest(questInfo[1].trim(), questInfo[6].trim(),
+							questInfo[2].trim(), Integer.parseInt(questInfo[3]), Integer.parseInt(questInfo[4]),
+							Integer.parseInt(questInfo[5]), rewardItems));
+					break;
+			}
+		}
 		return quests;
 	}
 	//endregion

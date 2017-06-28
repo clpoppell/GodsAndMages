@@ -1,50 +1,47 @@
 package gods_and_mages_engine.Items;
 
+/**
+ * Super class for all item classes, to implement shared shared fields and methods.
+ * <p> Allows all item objects to be stored in the same collections. Items that do not fit into
+ * any implemented categories can use {@code BaseItem} directly. </p>
+ */
 public class BaseItem{
+	/** The number price is divided by to get default sale price (divisor= {@value}) */
+	public static final int DEFAULT_SALE_PRICE_DIVISOR= 2;
+	
 	//region Variables
-	private final String name;
-	private final String namePlural;
-	private final String desc;
-	private final int price;
-	private final int salePrice;
+	public final String name;
+	public final String namePlural;
+	public final String description;
+	public final int price;
+	public final int salePrice;
 	//endregion
 	
 	//region Constructors
-	public BaseItem(String name, String namePlural, String desc, int price){
-		this(name, namePlural, desc, price, price/2);
+	/**
+	 * Constructs a new BaseItem by calling {@code BaseItem(String, String, String, int, int)}
+	 * with {@code price/DEFAULT_SALE_PRICE_DIVISOR} as {@code salePrice}.
+	 */
+	public BaseItem(String name, String namePlural, String description, int price){
+		this(name, namePlural, description, price, price/DEFAULT_SALE_PRICE_DIVISOR);
 	}
 	
-	public BaseItem(String name, String namePlural, String desc, int price, int salePrice){
+	public BaseItem(String name, String namePlural, String description, int price, int salePrice){
 		this.name= name;
 		this.namePlural= namePlural;
-		this.desc= desc;
+		this.description = description;
 		this.price= price;
 		this.salePrice= salePrice;
 	}
 	//endregion
 	
-	//region Accessors
-	// Returns key for item, which is item name
-	// Differentiated from getName() for code clarity
+	/**
+	 * Returns key for item, which is item name
+	 * <p> Assists with code clarity in regards to map collections </p>
+	*/
 	public String getKey(){ return name; }
 	
-	public boolean checkKeyItem(){
-		if(this instanceof KeyItem){ return true; }
-		return false;
-	}
-	
-	public String getName(){ return name; }
-	
-	public String getNamePlural(){ return namePlural; }
-	
-	public String getDesc(){ return desc; }
-	
-	public int getPrice(){ return price; }
-	
-	public int getSalePrice(){ return salePrice; }
-	//endregion
-	
 	public String toString(){
-		return this.name +"\n"+ this.desc +"\n"+ this.price +"\n";
+		return name +" ("+ namePlural +")\n"+ this.description +"\n"+ price +" ("+ salePrice +")\n";
 	}
 }

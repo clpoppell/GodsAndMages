@@ -14,15 +14,18 @@ import gods_and_mages_engine.*;
 import gods_and_mages_engine.Database.SaveGameDBHelper;
 import gods_and_mages_engine.Items.*;
 import gods_and_mages_engine.Quests.BaseQuest;
+import gods_and_mages_engine.Quests.BaseQuest.QuestStatus;
 
-public class Player extends LivingCreature{
+import static gods_and_mages_engine.World.*;
+
+public class PlayerCharacter extends LivingCreature{
 	//region Resources
-	private static Player player= null;
+	private static PlayerCharacter playerCharacter = null;
 	private static SaveGameDBHelper dbHelper= SaveGameDBHelper.getInstance();
 	private static Resources RES= App.context.getResources();
 	//endregion
 	
-	//region Starting values for player character
+	//region Starting values for playerCharacter character
 	private static final int STARTING_LEVEL= RES.getInteger(R.integer.starting_level);
 	private static final int STARTING_HP= RES.getInteger(R.integer.starting_hp);
 	private static final int STARTING_STR= RES.getInteger(R.integer.starting_str);
@@ -63,22 +66,22 @@ public class Player extends LivingCreature{
 	//endregion
 	
 	//region Character Instantiation
-	public static Player getPlayer(){ return player; }
+	public static PlayerCharacter getPlayerCharacter(){ return playerCharacter; }
 	
 	public static void makePlayer(int id, String[] charInfo){
 		if(charInfo == null){
-			player= new Player(id, dbHelper.loadSave(id));
+			playerCharacter = new PlayerCharacter(id, dbHelper.loadSave(id));
 		}
-		else{ player= new Player(id, charInfo[0], charInfo[1], charInfo[2], charInfo[3]); }
+		else{ playerCharacter = new PlayerCharacter(id, charInfo[0], charInfo[1], charInfo[2], charInfo[3]); }
 	}
 	
-	public Player(int playerID, String name, String charRace, String charClass, String charJob){
+	public PlayerCharacter(int playerID, String name, String charRace, String charClass, String charJob){
 		super(name, STARTING_HP, STARTING_STR, STARTING_STA, STARTING_AGI, STARTING_SPEED);
 		this.playerID= playerID;
 		
-		this.charRace= World.makeCharRace(charRace);
-		this.charClass= World.makeCharClass(charClass);
-		this.charJob= World.makeCharJob(charJob);
+		this.charRace= makeCharRace(charRace);
+		this.charClass= makeCharClass(charClass);
+		this.charJob= makeCharJob(charJob);
 		
 		this.level= STARTING_LEVEL;
 		this.status= STARTING_STATUS;
@@ -86,10 +89,10 @@ public class Player extends LivingCreature{
 		this.exp= 0;
 		
 		String[] equipmentList= RES.getStringArray(R.array.default_equipment);
-		this.currentWpn= (Weapon)World.getItem(equipmentList[0]);
-		this.currentArmor= (Armor)World.getItem(equipmentList[1]);
-		this.accOne= (Accessory)World.getItem(equipmentList[2]);
-		this.accTwo= (Accessory)World.getItem(equipmentList[3]);
+		this.currentWpn= (Weapon) getItem(equipmentList[0]);
+		this.currentArmor= (Armor) getItem(equipmentList[1]);
+		this.accOne= (Accessory) getItem(equipmentList[2]);
+		this.accTwo= (Accessory) getItem(equipmentList[3]);
 		
 		this.currentLocation= World.getLocation(STARTING_LOCATION);
 		
@@ -102,14 +105,14 @@ public class Player extends LivingCreature{
 				equipmentList[0], equipmentList[1], equipmentList[2], equipmentList[3], status, currentLocation.name);
 	}
 	
-	// public Player(int playerID, String name, String charRace, String charClass, String charJob){}
-	public Player(int playerID, String[] charInfo){
+	// public PlayerCharacter(int playerID, String name, String charRace, String charClass, String charJob){}
+	public PlayerCharacter(int playerID, String[] charInfo){
 		super(charInfo[0], 1000 /*Integer.parseInt(charInfo[5])*/, Integer.parseInt(charInfo[6]), Integer.parseInt(charInfo[7]),
 				Integer.parseInt(charInfo[8]), Integer.parseInt(charInfo[9]));
 		this.playerID= playerID;
-		this.charRace= World.makeCharRace(charInfo[1]);
-		this.charClass= World.makeCharClass(charInfo[2]);
-		this.charJob= World.makeCharJob(charInfo[3]);
+		this.charRace= makeCharRace(charInfo[1]);
+		this.charClass= makeCharClass(charInfo[2]);
+		this.charJob= makeCharJob(charInfo[3]);
 		
 		this.level= Integer.parseInt(charInfo[4]);
 		this.gold= Integer.parseInt(charInfo[11]);
@@ -118,10 +121,10 @@ public class Player extends LivingCreature{
 		this.currentHitPoints= 1000;//Integer.parseInt(charInfo[13]);
 		this.status= charInfo[14];
 		
-		this.currentWpn= (Weapon)World.getItem(charInfo[15]);
-		this.currentArmor= (Armor)World.getItem(charInfo[16]);
-		this.accOne= (Accessory)World.getItem(charInfo[17]);
-		this.accTwo= (Accessory)World.getItem(charInfo[18]);
+		this.currentWpn= (Weapon) getItem(charInfo[15]);
+		this.currentArmor= (Armor) getItem(charInfo[16]);
+		this.accOne= (Accessory) getItem(charInfo[17]);
+		this.accTwo= (Accessory) getItem(charInfo[18]);
 		
 		this.currentLocation= World.getLocation(charInfo[10]);
 		
@@ -150,7 +153,7 @@ public class Player extends LivingCreature{
 		InventoryItem item;
 		while(iterate.hasNext()){
 			key= iterate.next();
-			item= new InventoryItem(World.getItem(key), itemList.get(key));
+			item= new InventoryItem(getItem(key), itemList.get(key));
 			inventory.put(key, item);
 		}
 	}
@@ -162,15 +165,15 @@ public class Player extends LivingCreature{
 		for(String key : this.charClass.getTraitsGranted()){ placeTrait(key); }
 		for(String key : this.charJob.getTraitsGranted()){ placeTrait(key); }
 		
-		placeTrait(accOne.buff);
-		placeTrait(accTwo.buff);
+		placeTrait(accOne.trait);
+		placeTrait(accTwo.trait);
 	}
 	
 	// If trait type is in traits map, check percentage value of trait and old trait
 	// Then, if old trait's percentage is higher, make no change to map and return
 	// Otherwise, add trait to traits map
 	private void placeTrait(String key){
-		BaseTrait trait= World.getTrait(key);
+		BaseTrait trait= getTrait(key);
 		String traitClass= trait.traitClass;
 		
 		if(traits.containsKey(traitClass)){
@@ -183,13 +186,13 @@ public class Player extends LivingCreature{
 	
 	private void setAbilities(){
 		for(String key : this.charRace.getAbilitiesGranted()){
-			abilities.put(key, World.getAbility(key));
+			abilities.put(key, getAbility(key));
 		}
 		for(String key : this.charClass.getAbilitiesGranted()){
-			abilities.put(key, World.getAbility(key));
+			abilities.put(key, getAbility(key));
 		}
 		for(String key : this.charJob.getAbilitiesGranted()){
-			abilities.put(key, World.getAbility(key));
+			abilities.put(key, getAbility(key));
 		}
 	}
 	//endregion
@@ -267,7 +270,7 @@ public class Player extends LivingCreature{
 		if(!(attackUp == null)){ attack += str * attackUp.getPercentage(); }
 		if(!(attackDown == null)){ attack += str * attackDown.getPercentage(); }
 		
-		int mod= (int)(attack * (this.currentWpn.getDmgMod()));
+		int mod= (int)(attack * (this.currentWpn.dmgMod));
 		if(mod < 1){ mod= 1; }
 		
 		return attack + mod;
@@ -283,7 +286,7 @@ public class Player extends LivingCreature{
 		if(!(defenseUp == null)){ defense += sta * defenseUp.getPercentage(); }
 		if(!(defenseDown == null)){ defense += sta * defenseDown.getPercentage(); }
 		
-		int mod= (int)(defense * (currentArmor.getArmorMod()));
+		int mod= (int)(defense * (currentArmor.armorMod));
 		if(mod < 1){ mod= 1; }
 		
 		return defense + mod;
@@ -317,30 +320,30 @@ public class Player extends LivingCreature{
 	//endregion
 	
 	//region Inventory & Equipment Management
-	// Called to add an item into player inventory. Returns if key does not match any items.
+	// Called to add an item into playerCharacter inventory. Returns if key does not match any items.
 	// Changes quantity of item in inventory if already there, or adds item to map if not.
-	public void addItemToInventory(String key, int quantity){
-		if(World.getItem(key) == null){ return; }
+	public void addItemToInventory(String key, int quantityToAdd){
+		if(getItem(key) == null){ return; }
 		if(inventory.containsKey(key)){
-			if(World.getItem(key) instanceof KeyItem){ return; }
-			inventory.get(key).changeQuantity(quantity);
+			if(getItem(key) instanceof KeyItem){ return; }
+			inventory.get(key).changeQuantity(quantityToAdd);
 		}
-		else{ inventory.put(key, new InventoryItem(World.getItem(key), quantity)); }
+		else{ inventory.put(key, new InventoryItem(getItem(key), quantityToAdd)); }
 		saveItemChangeToDB(key);
 	}
 	
-	// Called to remove an item from player inventory. Returns true if item can be removed.
+	// Called to remove an item from playerCharacter inventory. Returns true if item can be removed.
 	// Changes quantity of item in inventory if equal to parameter passed, or removes item from map.
-	public boolean removeItemFromInventory(String key, int quantity){
-		if(World.getItem(key).checkKeyItem()){ return false; }
+	public boolean removeItemFromInventory(String key, int quantityToRemove){
+		if(getItem(key) instanceof KeyItem){ return false; }
 		if(inventory.containsKey(key)){
-			if(inventory.get(key).getQuantity() < quantity){ return false; }
-			if(inventory.get(key).getQuantity() == quantity){
+			if(inventory.get(key).getQuantity() < quantityToRemove){ return false; }
+			if(inventory.get(key).getQuantity() == quantityToRemove){
 				inventory.remove(key);
 				saveItemChangeToDB(key);
 				return true;
 			}
-			inventory.get(key).changeQuantity(-quantity);
+			inventory.get(key).changeQuantity(-quantityToRemove);
 			saveItemChangeToDB(key);
 			return true;
 		}
@@ -357,11 +360,11 @@ public class Player extends LivingCreature{
 	// Changes currentWpn if key is a Weapon and exists in inventory
 	// Calls appropriate methods to update inventory and save file
 	public boolean changeWeapon(String key){
-		if(!(World.getItem(key) instanceof Weapon)){ return false; }
+		if(!(getItem(key) instanceof Weapon)){ return false; }
 		if(!(inventory.containsKey(key))){ return false; }
 		addItemToInventory(currentWpn.getKey(), 1);
 		removeItemFromInventory(key, 1);
-		currentWpn= (Weapon)World.getItem(key);
+		currentWpn= (Weapon) getItem(key);
 		dbHelper.updateEquipment(playerID, key, "Weapon");
 		return true;
 	}
@@ -369,11 +372,11 @@ public class Player extends LivingCreature{
 	// Changes currentArmor if key is an Armor and exists in inventory
 	// Calls appropriate methods to update inventory and save file
 	public boolean changeArmor(String key){
-		if(!(World.getItem(key) instanceof Armor)){ return false; }
+		if(!(getItem(key) instanceof Armor)){ return false; }
 		if(!(inventory.containsKey(key))){ return false; }
 		addItemToInventory(currentArmor.getKey(), 1);
 		removeItemFromInventory(key, 1);
-		currentArmor= (Armor)World.getItem(key);
+		currentArmor= (Armor) getItem(key);
 		dbHelper.updateEquipment(playerID, key, "Armor");
 		return true;
 	}
@@ -381,19 +384,19 @@ public class Player extends LivingCreature{
 	// Changes Accessory in given slot if key is an Accessory and exists in inventory
 	// Calls appropriate methods to update inventory and save file
 	public boolean changeAccessory(String key, int slot){
-		if(!(World.getItem(key) instanceof Accessory)){ return false; }
+		if(!(getItem(key) instanceof Accessory)){ return false; }
 		if(!(inventory.containsKey(key))){ return false; }
 		
 		if(slot == 1){
 			addItemToInventory(accOne.getKey(), 1);
 			removeItemFromInventory(key, 1);
-			accOne= (Accessory)World.getItem(key);
+			accOne= (Accessory)getItem(key);
 			dbHelper.updateEquipment(playerID, key, "Acc1");
 		}
 		if(slot == 2){
 			addItemToInventory(accTwo.getKey(), 1);
 			removeItemFromInventory(key, 1);
-			accTwo= (Accessory)World.getItem(key);
+			accTwo= (Accessory)getItem(key);
 			dbHelper.updateEquipment(playerID, key, "Acc2");
 		}
 		setTraits();
@@ -409,14 +412,24 @@ public class Player extends LivingCreature{
 		}
 	}
 	
-	public void addQuest(String questName){
-		BaseQuest quest= World.getQuest(questName);
-		String key= quest.getKey();
-		
-		questsInProgress.put(key, quest);
+	public QuestStatus checkQuest(String questName){
+		if(completedQuests.containsKey(questName)){ return QuestStatus.QUEST_COMPLETE; }
+		if(questsInProgress.containsKey(questName)){
+			BaseQuest quest= getQuest(questName);
+			if(quest.isComplete()){
+				 // temporary
+			}
+			return QuestStatus.QUEST_IN_PROGRESS;
+		}
+		return QuestStatus.QUEST_NOT_STARTED;
 	}
 	
+	public int checkItemQuantity(String targetItem){
+		if(!(inventory.containsKey(targetItem))){ return -1; }
+		return inventory.get(targetItem).getQuantity();
+	}
 	
+	public void addQuest(String questName){ questsInProgress.put(questName, getQuest(questName)); }
 	
 	private void completeQuest(String questName){
 		if(questsInProgress.containsKey(questName)){
@@ -451,16 +464,12 @@ public class Player extends LivingCreature{
 				"Armor: "+ currentArmor.toString() +"\n\n"+
 				"Acc One: "+ accOne.toString() +"\n\n"+
 				"Acc Two: "+ accTwo.toString() +"\n\n";
-		Iterator<BaseTrait> iterate= traits.values().iterator();
-		while(iterate.hasNext()){
-			BaseTrait trait= iterate.next();
-			string += trait.toString() +"\n";
+		for(BaseTrait trait : traits.values()){
+			string += trait.toString() + "\n";
 		}
 		string += "\n";
-		Iterator<InventoryItem> iterate2= inventory.values().iterator();
-		while(iterate2.hasNext()){
-			InventoryItem item= iterate2.next();
-			string += item.toString() +"\n";
+		for(InventoryItem item : inventory.values()){
+			string += item.toString() + "\n";
 		}
 		return string;
 	}

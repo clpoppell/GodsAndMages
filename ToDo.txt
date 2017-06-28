@@ -9,9 +9,15 @@ Assign abilities to characteristics
 Assign scores to races and classes
 Implement help function for character creation
 Fix color changing
-Rebalance to hit formula
+Rebalance to-hit formula
+Finish quest implmentation
 
-
+Work on JavaDoc
+	Document base classes
+	Document World class
+	Document Database classes
+	Document Battle class
+	Document other classes
 		
 SaveGameDBHelper dbHelper= new SaveGameDBHelper(this);
 		dbHelper.refreshDatabase();

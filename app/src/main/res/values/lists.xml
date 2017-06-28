@@ -3,7 +3,8 @@
 	<string-array name="item_list">
 		<!-- List of Items as formatted strings -->
 		<!-- Format: item category # name # name plural # price # extra attributes # description -->
-		<!-- Recovery items have recovery type and recovery amount extra attribute -->
+		<!-- Recovery items have recovery amount extra attributes -->
+		<item>Recovery # Potion # Potions # 10 # 0.10 # 0.00 # Heals HP 10%</item>
 		
 		<!-- Usable(possible split) -->
 		
@@ -69,8 +70,8 @@
 	
 	<string-array name="monster_list">
 		<!-- List of Monsters as formatted strings -->
-		<!-- Format: name # maxHP # str # sta # agi # speed # exp # gold # desc -->
-		<item>Goblin # 20 # 5 # 5 # 5 # 5 # 2 # 10 # desc needed</item>
+		<!-- Format: name # maxHP # str # sta # agi # speed # exp # gold # description -->
+		<item>Goblin # 20 # 5 # 5 # 5 # 5 # 2 # 10 # description needed</item>
 	</string-array>
 	
 	<string-array name="location_list">
@@ -83,8 +84,11 @@
 	
 	<string-array name="quest_list">
 		<!-- List of Quests as formatted strings -->
-		<!-- Format: name #  -->
-		<item></item>
+		<!-- Format: quest type # name # extra attributes # reward exp # reward gold # description #
+		 reward items (comma delimited list, each element as: item name - number) -->
+		<!-- Collection quests have target item and item amount extra attributes -->
+		<item>Collect # Find A Gem # Gem # 1 # 10 # 15 # Return the missing gem. #
+			Unenchanted Ring - 2,Club - 1</item>
 	</string-array>
 	
 	<!-- Starting Values -->

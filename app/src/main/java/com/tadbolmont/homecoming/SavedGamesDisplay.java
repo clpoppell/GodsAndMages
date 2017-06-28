@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import gods_and_mages_engine.Database.SaveGameDBHelper;
-import gods_and_mages_engine.Player_Char.Player;
+import gods_and_mages_engine.Player_Char.PlayerCharacter;
 
 public class SavedGamesDisplay extends BaseActivity{
 	//region Extra Keys
@@ -82,15 +82,15 @@ public class SavedGamesDisplay extends BaseActivity{
 		switch(view.getId()){
 			case R.id.saveOne:
 				id= 1;
-				if(load){ Player.makePlayer(id, null); }
+				if(load){ PlayerCharacter.makePlayer(id, null); }
 				break;
 			case R.id.saveTwo:
 				id= 2;
-				if(load){ Player.makePlayer(id, null); }
+				if(load){ PlayerCharacter.makePlayer(id, null); }
 				break;
 			case R.id.saveThree:
 				id= 3;
-				if(load){ Player.makePlayer(id, null); }
+				if(load){ PlayerCharacter.makePlayer(id, null); }
 				break;
 		}
 		
