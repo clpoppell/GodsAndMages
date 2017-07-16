@@ -8,6 +8,9 @@ import java.util.List;
 import gods_and_mages_engine.Abilities.AttackAbility;
 import gods_and_mages_engine.Player_Char.PlayerCharacter;
 
+/**
+ *
+ */
 public class Battle{
 	private enum battleEndState{ Continue, MonsterWin, PlayerWin }
 	private battleEndState continueBattle= battleEndState.Continue;

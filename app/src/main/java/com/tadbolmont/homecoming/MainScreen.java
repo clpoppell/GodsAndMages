@@ -7,11 +7,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import gods_and_mages_engine.Battle;
-import gods_and_mages_engine.Items.InventoryItem;
 import gods_and_mages_engine.Monster;
 import gods_and_mages_engine.Player_Char.PlayerCharacter;
 import gods_and_mages_engine.Quests.BaseQuest;
@@ -33,11 +31,8 @@ public class MainScreen extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_screen);
 		
-		// Sets textView's scrolling movement
-		
-		
 		// Get the Intent that started this activity and extract the extras
-		Intent intent = getIntent();
+		Intent intent= getIntent();
 		id= intent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, 0);
 		
 		setupPlayerCharacter();
@@ -66,7 +61,7 @@ public class MainScreen extends BaseActivity{
 	
 	// Level Up
 	public void talk(View view){
-		pc.addItemToInventory("Gem", 1);
+		pc.addItemToInventory("Potion", 1);
 		
 		showPlayer();
 		scroll();
@@ -92,17 +87,9 @@ public class MainScreen extends BaseActivity{
 	
 	// Inventory
 	public void displayInventory(View view){
-		String string= "";
-		Iterator<InventoryItem> iterate2= pc.getInventory().values().iterator();
-		while(iterate2.hasNext()){
-			InventoryItem item= iterate2.next();
-			string += item.toString() +"\n";
-		}
-		
-		TextView textView= (TextView)findViewById(R.id.textView);
-		textView.setText(string +"\n\n");
-		
-		scroll();
+		Intent inventoryIntent= new Intent(this, InventoryViewActivity.class);
+		inventoryIntent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, id);
+		startActivity(inventoryIntent);
 	}
 	
 	private void showPlayer(){

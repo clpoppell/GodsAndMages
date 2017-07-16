@@ -1,8 +1,10 @@
 package gods_and_mages_engine.Abilities;
 
-
+/**
+ * Used for traits that modify a secondary attribute of a {@code LivingCreature}.
+ */
 public class BoostTrait extends BaseTrait{
-	private final String boostType;
+	public final String boostType;
 	private final double boostPercentage;
 	
 	public BoostTrait(String key, String traitName, String desc, String boostType, double boostPercentage){
@@ -11,9 +13,6 @@ public class BoostTrait extends BaseTrait{
 		this.boostPercentage= boostPercentage;
 	}
 	
-	public String getBoostType(){ return boostType; }
-	
-	public double getBoostPercentage(){ return boostPercentage; }
-	
-	public double getPercentage(){ return getBoostPercentage(); }
+	/** @return {@code boostPercentage} */
+	public double getPercentage(){ return boostPercentage; }
 }

@@ -1,6 +1,7 @@
 package gods_and_mages_engine.Items;
 
 import gods_and_mages_engine.LivingCreature;
+import gods_and_mages_engine.Player_Char.PlayerCharacter;
 
 /**
  * Used for items which alter current hit points and/or mana points of a {@code LivingCreature}
@@ -22,5 +23,7 @@ public class RecoveryItem extends UsableItem{
 	public void UseItem(LivingCreature target){
 		int amountToChange= (int)(target.getMaximumHitPoints()*healPercentage);
 		target.changeCurrentHP(amountToChange);
+		// temporary
+		if(target instanceof PlayerCharacter){ ((PlayerCharacter)target).removeItemFromInventory(name, 1); }
 	}
 }

@@ -9,7 +9,7 @@ import gods_and_mages_engine.Player_Char.PlayerCharacter;
  * <p> Allows all quest objects to be stored in the same collections. </p>
  */
 public abstract class BaseQuest{
-	/**  */
+	/** Defines completion status codes for classes that use quest objects */
 	public enum QuestStatus{ QUEST_NOT_STARTED, QUEST_IN_PROGRESS, QUEST_COMPLETE }
 	
 	public final String name;

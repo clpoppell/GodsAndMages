@@ -3,7 +3,7 @@ package gods_and_mages_engine.Items;
 /**
  * Stores a BaseItem object along with the quantity of the item in the player character's inventory.
  */
-public class InventoryItem{
+public final class InventoryItem{
 	/** The baseItem represented by this */
 	private final BaseItem item;
 	private int quantity;
@@ -15,6 +15,8 @@ public class InventoryItem{
 	
 	/** @return {@code item.namePlural} if {@code quantity} greater than 1, otherwise {@code item.name} */
 	public String getName(){ return quantity > 1 ? item.namePlural : item.name; }
+	
+	public BaseItem getItem(){ return item; }
 	
 	public int getQuantity(){ return quantity; }
 	

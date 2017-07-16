@@ -50,13 +50,11 @@
 				android:value=".SettingsScreen"/>
 		</activity>
 		<activity
-			android:name=".GameActivity"
-			android:label="@string/title_activity_game"
-			android:parentActivityName=".MainActivity"
-			android:theme="@style/AppTheme.NoActionBar">
+			android:name=".InventoryViewActivity"
+			android:parentActivityName=".MainScreen">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
-				android:value="com.tadbolmont.homecoming.MainActivity"/>
+				android:value=".MainScreen"/>
 		</activity>
 	</application>
 

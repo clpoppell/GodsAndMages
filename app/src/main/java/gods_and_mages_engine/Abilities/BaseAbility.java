@@ -1,23 +1,21 @@
 package gods_and_mages_engine.Abilities;
 
-// Base class for all abilities possessed by the player character and monsters
+/**
+ * Super class for all abilities possessed by the player character and monsters.
+ * <p> Allows all abilities to be stored in the same collections. </p>
+ */
 public abstract class BaseAbility{
-	private String key; // Unique name used to identify ability
-	private String desc; // Description of ability for UI display
+	/** Unique name used to identify ability */
+	public String name;
+	public String description;
 	
-	public BaseAbility(String key, String desc){
-		this.key= key;
-		this.desc= desc;
+	public BaseAbility(String name, String description){
+		this.name= name;
+		this.description= description;
 	}
-	
-	//region Accessors
-	public String getKey(){ return this.key; }
-	
-	public String getDesc(){ return this.desc; }
-	//endregion
 	
 	@Override
 	public String toString(){
-		return this.key +": "+ desc;
+		return name +": "+ description;
 	}
 }

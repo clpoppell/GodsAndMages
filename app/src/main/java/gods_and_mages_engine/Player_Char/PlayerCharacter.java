@@ -20,7 +20,7 @@ import static gods_and_mages_engine.World.*;
 
 public class PlayerCharacter extends LivingCreature{
 	//region Resources
-	private static PlayerCharacter playerCharacter = null;
+	private static PlayerCharacter playerCharacter= null;
 	private static SaveGameDBHelper dbHelper= SaveGameDBHelper.getInstance();
 	private static Resources RES= App.context.getResources();
 	//endregion
@@ -70,9 +70,9 @@ public class PlayerCharacter extends LivingCreature{
 	
 	public static void makePlayer(int id, String[] charInfo){
 		if(charInfo == null){
-			playerCharacter = new PlayerCharacter(id, dbHelper.loadSave(id));
+			playerCharacter= new PlayerCharacter(id, dbHelper.loadSave(id));
 		}
-		else{ playerCharacter = new PlayerCharacter(id, charInfo[0], charInfo[1], charInfo[2], charInfo[3]); }
+		else{ playerCharacter= new PlayerCharacter(id, charInfo[0], charInfo[1], charInfo[2], charInfo[3]); }
 	}
 	
 	public PlayerCharacter(int playerID, String name, String charRace, String charClass, String charJob){
@@ -101,13 +101,12 @@ public class PlayerCharacter extends LivingCreature{
 		setAbilities();
 		
 		dbHelper.insertCharacter(playerID, name, charRace, charClass, charJob,
-				level, maximumHitPoints, str, sta, agi, speed, gold, exp, currentHitPoints,
+				level, maximumHitPoints, strength, stamina, agility, speed, gold, exp, currentHitPoints,
 				equipmentList[0], equipmentList[1], equipmentList[2], equipmentList[3], status, currentLocation.name);
 	}
 	
-	// public PlayerCharacter(int playerID, String name, String charRace, String charClass, String charJob){}
 	public PlayerCharacter(int playerID, String[] charInfo){
-		super(charInfo[0], 1000 /*Integer.parseInt(charInfo[5])*/, Integer.parseInt(charInfo[6]), Integer.parseInt(charInfo[7]),
+		super(charInfo[0], Integer.parseInt(charInfo[5]), Integer.parseInt(charInfo[6]), Integer.parseInt(charInfo[7]),
 				Integer.parseInt(charInfo[8]), Integer.parseInt(charInfo[9]));
 		this.playerID= playerID;
 		this.charRace= makeCharRace(charInfo[1]);
@@ -118,7 +117,7 @@ public class PlayerCharacter extends LivingCreature{
 		this.gold= Integer.parseInt(charInfo[11]);
 		this.exp= Integer.parseInt(charInfo[12]);
 		
-		this.currentHitPoints= 1000;//Integer.parseInt(charInfo[13]);
+		this.currentHitPoints= Integer.parseInt(charInfo[13]);
 		this.status= charInfo[14];
 		
 		this.currentWpn= (Weapon) getItem(charInfo[15]);
@@ -174,14 +173,14 @@ public class PlayerCharacter extends LivingCreature{
 	// Otherwise, add trait to traits map
 	private void placeTrait(String key){
 		BaseTrait trait= getTrait(key);
-		String traitClass= trait.traitClass;
+		String traitType= trait.traitType;
 		
-		if(traits.containsKey(traitClass)){
-			BaseTrait oldTrait= traits.get(traitClass);
+		if(traits.containsKey(traitType)){
+			BaseTrait oldTrait= traits.get(traitType);
 			if(trait.getPercentage() < oldTrait.getPercentage()){ return; }
-			traits.remove(traitClass);
+			traits.remove(traitType);
 		}
-		traits.put(traitClass, trait);
+		traits.put(traitType, trait);
 	}
 	
 	private void setAbilities(){
@@ -207,12 +206,12 @@ public class PlayerCharacter extends LivingCreature{
 		if(exp >= toNextLevel()){
 			level++;
 			
-			str += charRace.getStrMod();
-			sta += charRace.getStaMod();
-			agi += charRace.getAgiMod();
+			strength += charRace.getStrMod();
+			stamina += charRace.getStaMod();
+			agility += charRace.getAgiMod();
 			speed += charRace.getSpeedMod();
 			
-			dbHelper.updateCharacterLevel(playerID, level, maximumHitPoints, str, sta, agi, speed);
+			dbHelper.updateCharacterLevel(playerID, level, maximumHitPoints, strength, stamina, agility, speed);
 			
 			updateLevel();
 		}
@@ -262,13 +261,13 @@ public class PlayerCharacter extends LivingCreature{
 	
 	@Override
 	public int getAtkPower(){
-		int attack= str;
+		int attack= strength;
 		
 		BoostTrait attackUp= (BoostTrait)traits.get("Atk Up");
 		BoostTrait attackDown= (BoostTrait)traits.get("Atk Down");
 		
-		if(!(attackUp == null)){ attack += str * attackUp.getPercentage(); }
-		if(!(attackDown == null)){ attack += str * attackDown.getPercentage(); }
+		if(!(attackUp == null)){ attack += strength * attackUp.getPercentage(); }
+		if(!(attackDown == null)){ attack += strength * attackDown.getPercentage(); }
 		
 		int mod= (int)(attack * (this.currentWpn.dmgMod));
 		if(mod < 1){ mod= 1; }
@@ -278,13 +277,13 @@ public class PlayerCharacter extends LivingCreature{
 	
 	@Override
 	public int getDefValue(){
-		int defense= sta;
+		int defense= stamina;
 		
 		BoostTrait defenseUp= (BoostTrait)traits.get("Def Up");
 		BoostTrait defenseDown= (BoostTrait)traits.get("Def Down");
 		
-		if(!(defenseUp == null)){ defense += sta * defenseUp.getPercentage(); }
-		if(!(defenseDown == null)){ defense += sta * defenseDown.getPercentage(); }
+		if(!(defenseUp == null)){ defense += stamina * defenseUp.getPercentage(); }
+		if(!(defenseDown == null)){ defense += stamina * defenseDown.getPercentage(); }
 		
 		int mod= (int)(defense * (currentArmor.armorMod));
 		if(mod < 1){ mod= 1; }
@@ -294,33 +293,33 @@ public class PlayerCharacter extends LivingCreature{
 	
 	@Override
 	public int getAccuracy(){
-		int accuracy= agi;
+		int accuracy= agility;
 		
 		BoostTrait accuracyUp= (BoostTrait)traits.get("Accuracy Up");
 		BoostTrait accuracyDown= (BoostTrait)traits.get("Accuracy Down");
 		
-		if(!(accuracyUp == null)){ accuracy += agi * accuracyUp.getPercentage(); }
-		if(!(accuracyDown == null)){ accuracy += agi * accuracyDown.getPercentage(); }
+		if(!(accuracyUp == null)){ accuracy += agility * accuracyUp.getPercentage(); }
+		if(!(accuracyDown == null)){ accuracy += agility * accuracyDown.getPercentage(); }
 		
 		return accuracy;
 	}
 	
 	@Override
 	public int getAvoidance(){
-		int avoidance= agi;
+		int avoidance= agility;
 		
 		BoostTrait avoidanceUp= (BoostTrait)traits.get("Avoid Up");
 		BoostTrait avoidanceDown= (BoostTrait)traits.get("Avoid Down");
 		
-		if(!(avoidanceUp == null)){ avoidance += agi * avoidanceUp.getPercentage(); }
-		if(!(avoidanceDown == null)){ avoidance += agi * avoidanceDown.getPercentage(); }
+		if(!(avoidanceUp == null)){ avoidance += agility * avoidanceUp.getPercentage(); }
+		if(!(avoidanceDown == null)){ avoidance += agility * avoidanceDown.getPercentage(); }
 
 		return avoidance;
 	}
 	//endregion
 	
 	//region Inventory & Equipment Management
-	// Called to add an item into playerCharacter inventory. Returns if key does not match any items.
+	// Called to add an item into playerCharacter inventory. Returns if name does not match any items.
 	// Changes quantity of item in inventory if already there, or adds item to map if not.
 	public void addItemToInventory(String key, int quantityToAdd){
 		if(getItem(key) == null){ return; }
@@ -357,44 +356,44 @@ public class PlayerCharacter extends LivingCreature{
 		dbHelper.updateInventory(playerID, itemName, quan);
 	}
 	
-	// Changes currentWpn if key is a Weapon and exists in inventory
+	// Changes currentWpn if name is a Weapon and exists in inventory
 	// Calls appropriate methods to update inventory and save file
 	public boolean changeWeapon(String key){
 		if(!(getItem(key) instanceof Weapon)){ return false; }
 		if(!(inventory.containsKey(key))){ return false; }
-		addItemToInventory(currentWpn.getKey(), 1);
+		addItemToInventory(currentWpn.name, 1);
 		removeItemFromInventory(key, 1);
 		currentWpn= (Weapon) getItem(key);
 		dbHelper.updateEquipment(playerID, key, "Weapon");
 		return true;
 	}
 	
-	// Changes currentArmor if key is an Armor and exists in inventory
+	// Changes currentArmor if name is an Armor and exists in inventory
 	// Calls appropriate methods to update inventory and save file
 	public boolean changeArmor(String key){
 		if(!(getItem(key) instanceof Armor)){ return false; }
 		if(!(inventory.containsKey(key))){ return false; }
-		addItemToInventory(currentArmor.getKey(), 1);
+		addItemToInventory(currentArmor.name, 1);
 		removeItemFromInventory(key, 1);
 		currentArmor= (Armor) getItem(key);
 		dbHelper.updateEquipment(playerID, key, "Armor");
 		return true;
 	}
 	
-	// Changes Accessory in given slot if key is an Accessory and exists in inventory
+	// Changes Accessory in given slot if name is an Accessory and exists in inventory
 	// Calls appropriate methods to update inventory and save file
 	public boolean changeAccessory(String key, int slot){
 		if(!(getItem(key) instanceof Accessory)){ return false; }
 		if(!(inventory.containsKey(key))){ return false; }
 		
 		if(slot == 1){
-			addItemToInventory(accOne.getKey(), 1);
+			addItemToInventory(accOne.name, 1);
 			removeItemFromInventory(key, 1);
 			accOne= (Accessory)getItem(key);
 			dbHelper.updateEquipment(playerID, key, "Acc1");
 		}
 		if(slot == 2){
-			addItemToInventory(accTwo.getKey(), 1);
+			addItemToInventory(accTwo.name, 1);
 			removeItemFromInventory(key, 1);
 			accTwo= (Accessory)getItem(key);
 			dbHelper.updateEquipment(playerID, key, "Acc2");
@@ -455,9 +454,9 @@ public class PlayerCharacter extends LivingCreature{
 				"Level: "+ level +" ("+ exp +"/"+ toNextLevel() +")\n\n"+
 				
 				"HP: "+ currentHitPoints +"/"+ maximumHitPoints +"\n"+
-				"Str: "+ str +"("+ getAtkPower() +")\n"+
-				"Sta: "+ sta +"("+ getDefValue() +")\n"+
-				"Agi: "+ agi +"\n"+
+				"Str: "+ strength +"("+ getAtkPower() +")\n"+
+				"Sta: "+ stamina +"("+ getDefValue() +")\n"+
+				"Agi: "+ agility +"\n"+
 				"Speed: "+ speed +"\n\n"+
 				
 				"Wpn: "+ currentWpn.toString() +"\n\n"+

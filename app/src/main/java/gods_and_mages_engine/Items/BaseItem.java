@@ -2,8 +2,10 @@ package gods_and_mages_engine.Items;
 
 /**
  * Super class for all item classes, to implement shared shared fields and methods.
- * <p> Allows all item objects to be stored in the same collections. Items that do not fit into
- * any implemented categories can use {@code BaseItem} directly. </p>
+ * <p>
+ *     Allows all item objects to be stored in the same collections. Items that do not fit into
+ *     any implemented categories can use {@code BaseItem} directly.
+ * </p>
  */
 public class BaseItem{
 	/** The number price is divided by to get default sale price (divisor= {@value}) */
@@ -36,8 +38,8 @@ public class BaseItem{
 	//endregion
 	
 	/**
-	 * Returns key for item, which is item name
-	 * <p> Assists with code clarity in regards to map collections </p>
+	 * Returns name for item, which is item name.
+	 * <p> Assists with code clarity in regards to map collections. </p>
 	*/
 	public String getKey(){ return name; }
 	

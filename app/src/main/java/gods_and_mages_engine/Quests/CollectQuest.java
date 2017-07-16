@@ -19,8 +19,8 @@ public class CollectQuest extends BaseQuest{
 	}
 	
 	/**
-	 * {@inheritDoc}
-	 * <p> Removes {@code itemAmount} of {@code targetItem} from player character's inventory </p>
+	 * Removes {@code itemAmount} of {@code targetItem} from player character's inventory, then calls
+	 * super method.
 	 */
 	@Override
 	public void completeQuest(){

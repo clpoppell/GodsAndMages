@@ -63,39 +63,75 @@
       <file leaf-file-name="PlayerCharacter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/PlayerCharacter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="67" column="4" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
+            <state relative-caret-position="1955">
+              <caret line="445" column="0" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
               <folding>
-                <element signature="e#636#654#0" expanded="false" />
-                <element signature="e#861#915#0" expanded="false" />
-                <element signature="e#2687#2719#0" expanded="false" />
-                <element signature="method#makePlayer#0;class#PlayerCharacter#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1764#1782#0" expanded="false" />
                 <element signature="method#PlayerCharacter#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#PlayerCharacter#1;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#makeDefaultInventory#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#loadInventory#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#setTraits#0;class#PlayerCharacter#0" expanded="false" />
-                <element signature="method#placeTrait#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#setAbilities#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#addExp#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#updateLevel#0;class#PlayerCharacter#0" expanded="false" />
-                <element signature="e#7877#7895#0" expanded="false" />
-                <element signature="e#8429#8462#0" expanded="false" />
+                <element signature="e#8336#8369#0" expanded="false" />
                 <element signature="method#getSpeed#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#getAtkPower#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#getDefValue#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#getAccuracy#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#getAvoidance#0;class#PlayerCharacter#0" expanded="false" />
-                <element signature="e#10497#10538#0" expanded="false" />
+                <element signature="e#10455#10496#0" expanded="false" />
                 <element signature="method#addItemToInventory#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#removeItemFromInventory#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#saveItemChangeToDB#0;class#PlayerCharacter#0" expanded="false" />
-                <element signature="method#changeWeapon#0;class#PlayerCharacter#0" expanded="false" />
-                <element signature="method#changeArmor#0;class#PlayerCharacter#0" expanded="false" />
-                <element signature="method#changeAccessory#0;class#PlayerCharacter#0" expanded="false" />
                 <element signature="method#changeLocation#0;class#PlayerCharacter#0" expanded="false" />
-                <element signature="method#toString#0;class#PlayerCharacter#0" expanded="false" />
+                <element signature="method#checkQuest#0;class#PlayerCharacter#0" expanded="false" />
+                <element signature="method#checkItemQuantity#0;class#PlayerCharacter#0" expanded="false" />
+                <element signature="method#completeQuest#0;class#PlayerCharacter#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InventoryViewActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/InventoryViewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+              <folding>
+                <element signature="method#onCreate#0;class#InventoryViewActivity#0" expanded="false" />
+                <element signature="e#2408#2791#0" expanded="true" />
+                <element signature="e#2790#2791#0" expanded="true" />
+                <element signature="method#toMain#0;class#InventoryViewActivity#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_equip_screen.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_equip_screen.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+              <folding>
+                <element signature="e#1857#1884#0" expanded="true" />
+                <element signature="e#2329#2354#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EquipScreenActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/EquipScreenActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,20 +146,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/World.java">
+      <file leaf-file-name="activity_inventory_view.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_inventory_view.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="180" column="88" selection-start-line="180" selection-start-column="88" selection-end-line="180" selection-end-column="88" />
+            <state relative-caret-position="221">
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/MainScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
               <folding>
-                <element signature="e#822#842#0" expanded="false" />
-                <element signature="e#1281#1318#0" expanded="false" />
-                <element signature="method#makeCharRace#0;class#World#0" expanded="false" />
-                <element signature="method#makeCharClass#0;class#World#0" expanded="false" />
-                <element signature="method#makeCharJob#0;class#World#0" expanded="false" />
-                <element signature="method#populateTraitList#0;class#World#0" expanded="false" />
-                <element signature="method#populateAbilityList#0;class#World#0" expanded="false" />
-                <element signature="e#10210#10240#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="method#setupPlayerCharacter#0;class#MainScreen#0" expanded="false" />
+                <element signature="method#beginBattle#0;class#MainScreen#0" expanded="false" />
+                <element signature="method#encounter#0;class#MainScreen#0" expanded="false" />
+                <element signature="method#displayInventory#0;class#MainScreen#0" expanded="false" />
+                <element signature="method#showPlayer#0;class#MainScreen#0" expanded="false" />
+                <element signature="method#scroll#0;class#MainScreen#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -134,11 +182,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="valueResourceFile" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -1657,7 +1705,7 @@
       <map>
         <entry key="$PROJECT_DIR$" value="4475241537916" />
         <entry key="C:\Users\Lee\AndroidStudioProjects\GodsandMages" value="4473275950301" />
-        <entry key="C:\Users\Lee\AndroidStudioProjects\Homecoming" value="4481836550167" />
+        <entry key="C:\Users\Lee\AndroidStudioProjects\Homecoming" value="4487281216171" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1961,57 +2009,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/GameActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/LootItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/InventoryList.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Item.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/HealthPotion.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/Ability.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/CharRace.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/CharJob.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/CharClass.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/ResistTrait.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BoostTrait.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/Characteristic.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/characteristic_values.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BaseAbility.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/ManageDataActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Types.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/RandomNumberGenerator.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/AttackAbility.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/SavedGamesDisplay.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/CreateCharacter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Battle.java" />
         <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/LivingCreature.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BaseTrait.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Monster.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Location.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Database/SaveGameContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/characteristic_abilities.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Database/SaveGameDBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/NPC.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/NonPlayerCharacter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/RNG.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/Player.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/MainScreen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/UsableItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/EquipableItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/KeyItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/InventoryItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quests/CollectQuest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quests/BaseQuest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/RecoveryItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/lists.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/World.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/BaseItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Accessory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Armor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Weapon.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/World.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quests/BaseQuest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/BaseItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BaseTrait.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BaseAbility.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/AttackAbility.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BoostTrait.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quests/CollectQuest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/ResistTrait.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/RNG.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/LivingCreature.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Monster.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/App.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Battle.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/PlayerCharacter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Database/SaveGameDBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Database/SaveGameContract.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/inventory_view_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/InventoryItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/MainScreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/view_border.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/RecoveryItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/EquipScreenActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_equip_screen.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_inventory_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/InventoryViewActivity.java" />
       </list>
     </option>
   </component>
@@ -2035,6 +2083,9 @@
             <id>Android &gt; Lint &gt; Accessibility</id>
           </State>
           <State>
+            <id>Code maturity issuesJava</id>
+          </State>
+          <State>
             <id>Java</id>
           </State>
           <State>
@@ -2043,7 +2094,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>PackageDotHtmlMayBePackageInfo</id>
+            <id>Deprecation</id>
           </State>
         </selected-state>
       </profile-state>
@@ -2074,7 +2125,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2092,6 +2154,28 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Homecoming" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2124,14 +2208,6 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gods_and_mages_engine" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Quests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2147,12 +2223,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gods_and_mages_engine" />
+              <option name="myItemId" value="homecoming" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Player_Char" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2163,47 +2235,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gods_and_mages_engine" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Items" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Homecoming" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -2492,7 +2527,7 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
@@ -2562,53 +2597,62 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-8" width="1319" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258786" sideWeight="0.49245432" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39616615" sideWeight="0.51151705" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41214058" sideWeight="0.5146942" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32803813" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258786" sideWeight="0.4973139" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3258786" sideWeight="0.4973139" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20730738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32428116" sideWeight="0.49563146" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41214058" sideWeight="0.4853058" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41214058" sideWeight="0.48848292" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32803813" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31993568" sideWeight="0.49563146" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39616615" sideWeight="0.51151705" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41214058" sideWeight="0.5146942" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41214058" sideWeight="0.48848292" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41214058" sideWeight="0.4853058" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258786" sideWeight="0.49245432" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2619,8 +2663,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2652899" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32428116" sideWeight="0.49563146" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20730738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31993568" sideWeight="0.49563146" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -2639,195 +2683,323 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="237" />
+      <option name="time" value="261" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/os/Handler.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Accessory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/view/View.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Armor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="19869" column="0" selection-start-line="19869" selection-start-column="0" selection-end-line="19869" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/os/Looper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Weapon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.groovy">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/EquipableItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/ManageDataActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Types.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="33" />
+        <state relative-caret-position="51">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BaseAbility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="3" column="80" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/AttackAbility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/ResistTrait.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BoostTrait.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/SettingsScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/CreateCharacter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/app/Instrumentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/com/android/dex/Dex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/SavedGamesDisplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="103" column="88" selection-start-line="103" selection-start-column="88" selection-end-line="103" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
-          <folding>
-            <element signature="e#378#1241#0" expanded="false" />
-            <element signature="e#1245#1842#0" expanded="false" />
-            <element signature="e#1846#2433#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/25.3.1/appcompat-v7-25.3.1-sources.jar!/android/support/v7/app/AppCompatViewInflater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="291" column="0" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="368">
+          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BaseTrait.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="method#BaseTrait#0;class#BaseTrait#0" expanded="false" />
-            <element signature="method#equals#0;class#BaseTrait#0" expanded="false" />
-            <element signature="method#hashCode#0;class#BaseTrait#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="71" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/BoostTrait.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="81" selection-start-line="3" selection-start-column="81" selection-end-line="3" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Abilities/ResistTrait.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quests/CollectQuest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quests/BaseQuest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/KeyItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/RNG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Battle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/database/sqlite/SQLiteClosable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/database/CursorWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="502" column="0" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/database/AbstractCursor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="424" column="0" selection-start-line="424" selection-start-column="0" selection-end-line="424" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/database/sqlite/SQLiteCursor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/database/AbstractWindowedCursor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Database/SaveGameContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="92" column="76" selection-start-line="92" selection-start-column="76" selection-end-line="92" selection-end-column="76" />
+        <state relative-caret-position="221">
+          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/25.3.1/appcompat-v7-25.3.1-sources.jar!/android/support/v7/app/AppCompatViewInflater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="295" column="0" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/SavedGamesDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
-            <element signature="class#SaveEntry#0;class#SaveGameContract#0" expanded="false" />
-            <element signature="class#StatsEntry#0;class#SaveGameContract#0" expanded="false" />
-            <element signature="class#PlayerStatusEntry#0;class#SaveGameContract#0" expanded="false" />
-            <element signature="class#EquipmentEntry#0;class#SaveGameContract#0" expanded="false" />
-            <element signature="class#InventoryEntry#0;class#SaveGameContract#0" expanded="false" />
+            <element signature="e#351#370#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SavedGamesDisplay#0" expanded="false" />
+            <element signature="method#populateText#0;class#SavedGamesDisplay#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/characteristic_values.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Database/SaveGameDBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="340">
+          <caret line="367" column="0" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/widget/TextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8758" column="0" selection-start-line="8758" selection-start-column="0" selection-end-line="8758" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/SettingsScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/settings.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1768">
+          <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/inventory_view_layout.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/PlayerCharacter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        <state relative-caret-position="1955">
+          <caret line="445" column="0" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1764#1782#0" expanded="false" />
+            <element signature="method#PlayerCharacter#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#PlayerCharacter#1;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#makeDefaultInventory#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#loadInventory#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#setTraits#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#setAbilities#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#addExp#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#updateLevel#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="e#8336#8369#0" expanded="false" />
+            <element signature="method#getSpeed#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#getAtkPower#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#getDefValue#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#getAccuracy#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#getAvoidance#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="e#10455#10496#0" expanded="false" />
+            <element signature="method#addItemToInventory#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#removeItemFromInventory#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#saveItemChangeToDB#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#changeLocation#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#checkQuest#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#checkItemQuantity#0;class#PlayerCharacter#0" expanded="false" />
+            <element signature="method#completeQuest#0;class#PlayerCharacter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/BaseItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="41" column="72" selection-start-line="41" selection-start-column="72" selection-end-line="41" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/InventoryItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding>
+            <element signature="e#775#776#0" expanded="false" />
+            <element signature="e#814#815#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/lists.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="68" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="68" />
           <folding />
         </state>
       </provider>
@@ -2840,115 +3012,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/view_border.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/UsableItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/RecoveryItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="62" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Database/SaveGameDBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="321" column="64" selection-start-line="321" selection-start-column="64" selection-end-line="321" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1082#1108#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#deleteSave#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#refreshDatabase#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#loadCharacterInfo#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#insertCharacter#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#updateCharacterLevel#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#updateStatus#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#updateEquipment#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#updateInventory#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#updateLocation#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#addQuest#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#loadSave#0;class#SaveGameDBHelper#0" expanded="false" />
-            <element signature="method#loadInventory#0;class#SaveGameDBHelper#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Battle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="96" column="63" selection-start-line="96" selection-start-column="63" selection-end-line="96" selection-end-column="63" />
-          <folding>
-            <element signature="method#setTurnOrder#0;class#Battle#0" expanded="false" />
-            <element signature="method#MonstersAlive#0;class#Battle#0" expanded="false" />
-            <element signature="method#dealDamage#0;class#Battle#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/characteristic_abilities.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/RNG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/NonPlayerCharacter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/MainScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="77" column="78" selection-start-line="77" selection-start-column="78" selection-end-line="77" selection-end-column="78" />
+        <state relative-caret-position="510">
+          <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
           <folding>
-            <element signature="method#onCreate#0;class#MainScreen#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#setupPlayerCharacter#0;class#MainScreen#0" expanded="false" />
+            <element signature="method#beginBattle#0;class#MainScreen#0" expanded="false" />
             <element signature="method#encounter#0;class#MainScreen#0" expanded="false" />
             <element signature="method#displayInventory#0;class#MainScreen#0" expanded="false" />
             <element signature="method#showPlayer#0;class#MainScreen#0" expanded="false" />
@@ -2957,181 +3057,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/InventoryItem.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/app/Instrumentation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding>
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/UsableItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/EquipableItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/KeyItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="17">
+          <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/LivingCreature.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/BaseItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="64" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
-          <folding>
-            <element signature="e#463#481#0" expanded="false" />
-            <element signature="e#646#667#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/RecoveryItem.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="89" selection-start-line="10" selection-start-column="89" selection-end-line="10" selection-end-column="89" />
-          <folding />
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/lists.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/EquipScreenActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Weapon.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_equip_screen.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        <state relative-caret-position="629">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
           <folding>
-            <element signature="e#474#475#0" expanded="true" />
-            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#1857#1884#0" expanded="true" />
+            <element signature="e#2329#2354#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Player_Char/PlayerCharacter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="67" column="4" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
-          <folding>
-            <element signature="e#636#654#0" expanded="false" />
-            <element signature="e#861#915#0" expanded="false" />
-            <element signature="e#2687#2719#0" expanded="false" />
-            <element signature="method#makePlayer#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#PlayerCharacter#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#PlayerCharacter#1;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#makeDefaultInventory#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#loadInventory#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#setTraits#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#placeTrait#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#setAbilities#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#addExp#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#updateLevel#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="e#7877#7895#0" expanded="false" />
-            <element signature="e#8429#8462#0" expanded="false" />
-            <element signature="method#getSpeed#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#getAtkPower#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#getDefValue#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#getAccuracy#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#getAvoidance#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="e#10497#10538#0" expanded="false" />
-            <element signature="method#addItemToInventory#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#removeItemFromInventory#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#saveItemChangeToDB#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#changeWeapon#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#changeArmor#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#changeAccessory#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#changeLocation#0;class#PlayerCharacter#0" expanded="false" />
-            <element signature="method#toString#0;class#PlayerCharacter#0" expanded="false" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_inventory_view.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Accessory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        <state relative-caret-position="221">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Items/Armor.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tadbolmont/homecoming/InventoryViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        <state relative-caret-position="138">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
           <folding>
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quests/CollectQuest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="22" column="94" selection-start-line="22" selection-start-column="94" selection-end-line="22" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CollectQuest#0;class#CollectQuest#0" expanded="false" />
-            <element signature="method#completeQuest#0;class#CollectQuest#0" expanded="false" />
-            <element signature="method#isComplete#0;class#CollectQuest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/Quests/BaseQuest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#BaseQuest#0;class#BaseQuest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gods_and_mages_engine/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="180" column="88" selection-start-line="180" selection-start-column="88" selection-end-line="180" selection-end-column="88" />
-          <folding>
-            <element signature="e#822#842#0" expanded="false" />
-            <element signature="e#1281#1318#0" expanded="false" />
-            <element signature="method#makeCharRace#0;class#World#0" expanded="false" />
-            <element signature="method#makeCharClass#0;class#World#0" expanded="false" />
-            <element signature="method#makeCharJob#0;class#World#0" expanded="false" />
-            <element signature="method#populateTraitList#0;class#World#0" expanded="false" />
-            <element signature="method#populateAbilityList#0;class#World#0" expanded="false" />
-            <element signature="e#10210#10240#0" expanded="false" />
+            <element signature="method#onCreate#0;class#InventoryViewActivity#0" expanded="false" />
+            <element signature="e#2408#2791#0" expanded="true" />
+            <element signature="e#2790#2791#0" expanded="true" />
+            <element signature="method#toMain#0;class#InventoryViewActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

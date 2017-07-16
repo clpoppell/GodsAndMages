@@ -17,8 +17,12 @@ import gods_and_mages_engine.Quests.BaseQuest;
 import gods_and_mages_engine.Quests.CollectQuest;
 
 /**
- * This class provides various objects needed to create the player character,
- * populate battle encounters, handle inventory and shop systems, etc
+ * This class provides various objects as they are needed.
+ * <p>
+ *     Object collections are populated using an external xml resource, and elements are accessed
+ *     using the accessor methods to create the player character, populate battle encounters,
+ *     handle inventory and shop systems, etc.
+ * </p>
  */
 public final class World{
 	public static final int UNSELLABLE_ITEM_PRICE= -1;
@@ -36,6 +40,12 @@ public final class World{
 	private World(){}
 	
 	//region Make Characteristics Methods
+	/**
+	 * Takes the appropriate character race string from external xml resource to create the
+	 * {@code charRace} object used as part of instantiating the player character.
+	 * @param charRaceName string name to define {@code charRace}
+	 * @return charRace defined by {@code charRaceName}
+	 */
 	public static CharRace makeCharRace(String charRaceName){
 		CharRace charRace;
 		String[] traits;
@@ -65,6 +75,12 @@ public final class World{
 		return charRace;
 	}
 	
+	/**
+	 * Takes the appropriate character class string from external xml resource to create the
+	 * {@code charClass} object used as part of instantiating the player character.
+	 * @param charClassName string name to define {@code charClass}
+	 * @return charClass defined by {@code charClassName}
+	 */
 	public static CharClass makeCharClass(String charClassName){
 		CharClass charClass;
 		String[] traits;
@@ -90,6 +106,12 @@ public final class World{
 		return charClass;
 	}
 	
+	/**
+	 * Takes the appropriate character job string from external xml resource to create the
+	 * {@code charJob} object used as part of instantiating the player character.
+	 * @param charJobName string name to define {@code charJob}
+	 * @return charJob defined by {@code charJobName}
+	 */
 	public static CharJob makeCharJob(String charJobName){
 		CharJob charJob;
 		String[] traits;
@@ -118,8 +140,8 @@ public final class World{
 	
 	//region Populate Lists Methods
 	/**
-	 * Takes trait strings from lists.xml and splits them to obtain trait information,
-	 * constructs BaseTrait objects using this information, and adds objects to TRAIT_LIST
+	 * Takes trait strings from external xml resource and splits them to obtain trait information,
+	 * constructs {@code BaseTrait} objects using this information, and adds objects to {@code TRAIT_LIST}
 	 */
 	private static Map<String,BaseTrait> populateTraitList(){
 		Map<String, BaseTrait> traits= new HashMap<String, BaseTrait>();
@@ -143,8 +165,8 @@ public final class World{
 	}
 
 	/**
-	 * Takes ability strings from lists.xml and splits them to obtain ability information,
-	 * constructs BaseAbility objects using this information, and adds objects to ABILITY_LIST
+	 * Takes ability strings from external xml resource and splits them to obtain ability information,
+	 * constructs {@code BaseAbility} objects using this information, and adds objects to {@code ABILITY_LIST}
 	 */
 	private static Map<String, BaseAbility> populateAbilityList(){
 		Map<String, BaseAbility> abilities= new HashMap<String, BaseAbility>();
@@ -165,8 +187,8 @@ public final class World{
 	}
 	
 	/**
-	 * Takes item strings from lists.xml and splits them to obtain item information,
-	 * constructs BaseItem objects using this information, and adds objects to ITEM_LIST
+	 * Takes item strings from external xml resource and splits them to obtain item information,
+	 * constructs {@code BaseItem} objects using this information, and adds objects to {@code ITEM_LIST}
 	 */
 	private static Map<String, BaseItem> populateItemList(){
 		Map<String, BaseItem> items= new HashMap<String, BaseItem>();
@@ -207,8 +229,8 @@ public final class World{
 	}
 	
 	/**
-	 * Takes location strings from lists.xml and splits them to obtain location information,
-	 * constructs Location objects using this information, and adds objects to LOCATION_LIST
+	 * Takes location strings from external xml resource and splits them to obtain location information,
+	 * constructs {@code Location} objects using this information, and adds objects to {@code LOCATION_LIST}
 	 */
 	private static Map<String, Location> populateLocationList(){
 		Map<String, Location> locations= new HashMap<String, Location>();
@@ -225,7 +247,7 @@ public final class World{
 	}
 	
 	/**
-	 * Takes quest strings from lists.xml and splits them to obtain quest information,
+	 * Takes quest strings from external xml resource and splits them to obtain quest information,
 	 * constructs BaseQuest objects using this information, and adds objects to QUEST_LIST
 	 */
 	private static Map<String, BaseQuest> populateQuestList(){

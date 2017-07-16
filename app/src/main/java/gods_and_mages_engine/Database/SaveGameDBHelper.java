@@ -335,28 +335,33 @@ public final class SaveGameDBHelper extends SQLiteOpenHelper{
 		
 		Cursor cursor= db.rawQuery(SQL_LOAD_QUERY, new String[]{ Integer.toString(saveID) });
 		if(cursor.moveToNext()){
-			charInfo[0]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_NAME));
-			charInfo[1]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_RACE));
-			charInfo[2]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_CLASS));
-			charInfo[3]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_JOB));
-			
-			charInfo[4]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_LEVEL));
-			charInfo[5]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_MAXHP));
-			charInfo[6]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_STRENGTH));
-			charInfo[7]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_STAMINA));
-			charInfo[8]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_AGILITY));
-			charInfo[9]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_SPEED));
-			
-			charInfo[10]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_LOCATION));
-			charInfo[11]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_GOLD));
-			charInfo[12]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_EXP));
-			charInfo[13]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_CURRENT_HP));
-			charInfo[14]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_STATUS));
-			
-			charInfo[15]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_WEAPON));
-			charInfo[16]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_ARMOR));
-			charInfo[17]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_ACCESSORY_1));
-			charInfo[18]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_ACCESSORY_2));
+			try{
+				charInfo[0]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_NAME));
+				charInfo[1]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_RACE));
+				charInfo[2]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_CLASS));
+				charInfo[3]= cursor.getString(cursor.getColumnIndex(SAVES_COLUMN_JOB));
+				
+				charInfo[4]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_LEVEL));
+				charInfo[5]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_MAXHP));
+				charInfo[6]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_STRENGTH));
+				charInfo[7]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_STAMINA));
+				charInfo[8]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_AGILITY));
+				charInfo[9]= cursor.getString(cursor.getColumnIndex(STATS_COLUMN_SPEED));
+				
+				charInfo[10]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_LOCATION));
+				charInfo[11]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_GOLD));
+				charInfo[12]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_EXP));
+				charInfo[13]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_CURRENT_HP));
+				charInfo[14]= cursor.getString(cursor.getColumnIndex(STATUS_COLUMN_STATUS));
+				
+				charInfo[15]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_WEAPON));
+				charInfo[16]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_ARMOR));
+				charInfo[17]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_ACCESSORY_1));
+				charInfo[18]= cursor.getString(cursor.getColumnIndex(EQUIPMENT_COLUMN_ACCESSORY_2));
+			}
+			catch(Exception e){
+				charInfo= null;
+			}
 		}
 		else{ charInfo= null; }
 		cursor.close();

@@ -70,7 +70,7 @@
 	
 	<string-array name="monster_list">
 		<!-- List of Monsters as formatted strings -->
-		<!-- Format: name # maxHP # str # sta # agi # speed # exp # gold # description -->
+		<!-- Format: name # maxHP # strength # stamina # agility # speed # exp # gold # description -->
 		<item>Goblin # 20 # 5 # 5 # 5 # 5 # 2 # 10 # description needed</item>
 	</string-array>
 	
