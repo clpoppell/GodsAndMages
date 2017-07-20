@@ -45,7 +45,7 @@ public class SavedGamesDisplay extends BaseActivity{
 		}
 		else if(pIntent.getIntExtra(MainActivity.EXTRA_MESSAGE, 0) == 2){
 			titleText= "Select Saved Game";
-			intent= new Intent(this, MainScreen.class);
+			intent= new Intent(this, ExplorationScreenActivity.class);
 			load= true;
 			intent.putExtra(EXTRA_MESSAGE_LOAD, 1);
 		}

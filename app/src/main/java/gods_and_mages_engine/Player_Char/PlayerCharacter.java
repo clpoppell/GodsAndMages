@@ -7,6 +7,7 @@ import com.tadbolmont.homecoming.R;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import gods_and_mages_engine.Abilities.BaseTrait;
 import gods_and_mages_engine.Abilities.BoostTrait;
@@ -18,11 +19,13 @@ import gods_and_mages_engine.Quests.BaseQuest.QuestStatus;
 
 import static gods_and_mages_engine.World.*;
 
+@SuppressWarnings("FieldNotUsedInToString") // Remove @SuppressWarnings along w/ toString()
 public class PlayerCharacter extends LivingCreature{
 	//region Resources
 	private static PlayerCharacter playerCharacter= null;
-	private static SaveGameDBHelper dbHelper= SaveGameDBHelper.getInstance();
-	private static Resources RES= App.context.getResources();
+	private static final SaveGameDBHelper dbHelper= SaveGameDBHelper.getInstance();
+	private static final Resources RES= App.context.getResources();
+	private static final Pattern INVENTORY_ITEM_PATTERN= Pattern.compile(" # ");
 	//endregion
 	
 	//region Starting values for playerCharacter character
@@ -41,13 +44,13 @@ public class PlayerCharacter extends LivingCreature{
 	private static final int BASE_XP= 10;
 	
 	//region Variables
-	private int playerID;
+	private final int playerID;
 	private int exp;
 	private int level;
 	
-	private CharRace charRace;
-	private CharClass charClass;
-	private CharJob charJob;
+	private final CharRace charRace;
+	private final CharClass charClass;
+	private final CharJob charJob;
 	
 	private Weapon currentWpn; // Weapon currently equipped
 	private Armor currentArmor; // Armor currently equipped
@@ -55,13 +58,13 @@ public class PlayerCharacter extends LivingCreature{
 	private Accessory accTwo; // 2nd Accessory currently equipped
 	
 	private int gold;
-	private Map<String, InventoryItem> inventory= new LinkedHashMap<String, InventoryItem>(); // Current inventory
-	private Map<String, String> baseTraits= new LinkedHashMap<String, String>(); // Traits overwritten due to equipment
+	private final Map<String, InventoryItem> inventory= new LinkedHashMap<String, InventoryItem>(); // Current inventory
+	private final Map<String, String> baseTraits= new LinkedHashMap<String, String>(); // Traits overwritten due to equipment
 	
 	// Location & BaseQuest Info
 	private Location currentLocation;
-	private Map<String, BaseQuest> questsInProgress= new LinkedHashMap<String, BaseQuest>();
-	private Map<String, BaseQuest> completedQuests= new LinkedHashMap<String, BaseQuest>();
+	private final Map<String, BaseQuest> questsInProgress= new LinkedHashMap<String, BaseQuest>();
+	private final Map<String, BaseQuest> completedQuests= new LinkedHashMap<String, BaseQuest>();
 	
 	//endregion
 	
@@ -105,6 +108,7 @@ public class PlayerCharacter extends LivingCreature{
 				equipmentList[0], equipmentList[1], equipmentList[2], equipmentList[3], status, currentLocation.name);
 	}
 	
+	@SuppressWarnings("MagicNumber")
 	public PlayerCharacter(int playerID, String[] charInfo){
 		super(charInfo[0], Integer.parseInt(charInfo[5]), Integer.parseInt(charInfo[6]), Integer.parseInt(charInfo[7]),
 				Integer.parseInt(charInfo[8]), Integer.parseInt(charInfo[9]));
@@ -139,7 +143,7 @@ public class PlayerCharacter extends LivingCreature{
 		String[] itemEntry;
 		
 		for(String item : itemStrings){
-			itemEntry= item.split(" # ");
+			itemEntry= INVENTORY_ITEM_PATTERN.split(item);
 			addItemToInventory(itemEntry[0].trim(), Integer.parseInt(itemEntry[1]));
 		}
 	}
@@ -241,6 +245,15 @@ public class PlayerCharacter extends LivingCreature{
 	
 	//temporary
 	public Weapon getCurrentWpn(){ return currentWpn; }
+	
+	//temporary
+	public Armor getCurrentArmor(){ return currentArmor; }
+	
+	//temporary
+	public Accessory getCurrentAccOne(){ return accOne; }
+	
+	//temporary
+	public Accessory getCurrentAccTwo(){ return accTwo; }
 	
 	public Map<String, InventoryItem> getInventory(){ return inventory; }
 	//endregion
@@ -457,18 +470,9 @@ public class PlayerCharacter extends LivingCreature{
 				"Str: "+ strength +"("+ getAtkPower() +")\n"+
 				"Sta: "+ stamina +"("+ getDefValue() +")\n"+
 				"Agi: "+ agility +"\n"+
-				"Speed: "+ speed +"\n\n"+
-				
-				"Wpn: "+ currentWpn.toString() +"\n\n"+
-				"Armor: "+ currentArmor.toString() +"\n\n"+
-				"Acc One: "+ accOne.toString() +"\n\n"+
-				"Acc Two: "+ accTwo.toString() +"\n\n";
+				"Speed: "+ speed +"\n\n";
 		for(BaseTrait trait : traits.values()){
 			string += trait.toString() + "\n";
-		}
-		string += "\n";
-		for(InventoryItem item : inventory.values()){
-			string += item.toString() + "\n";
 		}
 		return string;
 	}

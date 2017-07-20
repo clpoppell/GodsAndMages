@@ -23,7 +23,7 @@
 			tools:targetApi="jelly_bean">
 		</activity>
 		<activity
-			android:name=".MainScreen"
+			android:name=".ExplorationScreenActivity"
 			android:parentActivityName=".MainActivity">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
@@ -51,10 +51,12 @@
 		</activity>
 		<activity
 			android:name=".InventoryViewActivity"
-			android:parentActivityName=".MainScreen">
+			android:parentActivityName=".ExplorationScreenActivity">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
-				android:value=".MainScreen"/>
+				android:value=".ExplorationScreenActivity"/>
+		</activity>
+		<activity android:name=".EquipScreenActivity">
 		</activity>
 	</application>
 

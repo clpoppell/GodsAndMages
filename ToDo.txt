@@ -12,8 +12,11 @@ Fix color changing
 Rebalance to-hit formula
 Finish quest implmentation
 Finish implemention of inventory screen
-	fix margins for buttons and text views
+	confirm on item use
+	display item descriptions
 Implement equip screen
+	equipment change
+	display of stats
 Implement quest view screen
 Alter back button behavior throughout app
 Fix theme preference

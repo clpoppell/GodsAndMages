@@ -81,7 +81,7 @@ public class CreateCharacter extends BaseActivity implements AdapterView.OnItemS
 	public void startGame(View view){
 		EditText editText= (EditText)findViewById(R.id.name_editText);
 		Intent pIntent= getIntent();
-		Intent intent= new Intent(this, MainScreen.class);
+		Intent intent= new Intent(this, ExplorationScreenActivity.class);
 		
 		int id= pIntent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, 0);
 		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, id);

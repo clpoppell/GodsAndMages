@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,9 +18,8 @@ public class InventoryViewActivity extends BaseActivity{
 	private static final float USE_BUTTON_WEIGHT= 0.25f;
 	
 	private LinearLayout listLayout;
-	private PlayerCharacter pc;
+	private final PlayerCharacter pc= PlayerCharacter.getPlayerCharacter();
 	private int id= 0;
-	private int temp= 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -30,18 +28,19 @@ public class InventoryViewActivity extends BaseActivity{
 		
 		Intent intent= getIntent();
 		id= intent.getIntExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, 0);
-		
 		listLayout= (LinearLayout)findViewById(R.id.itemList);
-		pc= PlayerCharacter.getPlayerCharacter();
 		
 		showInventory();
 	}
 	
+	// Method needs major refactoring, works but feels extremely hackish
 	private void showInventory(){
-		Map<String, InventoryItem> items= pc.getInventory();
+		final Map<String, InventoryItem> items= pc.getInventory();
 		final String[] itemNames= new String[items.size()];
+		final LinearLayout[] rows= new LinearLayout[items.size()];
+		final TextView[] descriptions= new TextView[items.size()];
 		
-		int i= 0;
+		int i= 0; // Used as index for storing in itemNames, descriptions, & rows
 		
 		for(InventoryItem item : items.values()){
 			LinearLayout row= new LinearLayout(this);
@@ -64,7 +63,7 @@ public class InventoryViewActivity extends BaseActivity{
 			
 			useBtn.setBackgroundResource(R.drawable.view_border);
 			// temporary
-			useBtn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, USE_BUTTON_WEIGHT));
+			useBtn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT, USE_BUTTON_WEIGHT));
 			
 			if(item.getItem() instanceof UsableItem){
 				useBtn.setId(i);
@@ -72,28 +71,38 @@ public class InventoryViewActivity extends BaseActivity{
 				useBtn.setOnClickListener(new View.OnClickListener(){
 					@Override
 					public void onClick(View v){
-						Button temp= (Button)findViewById(R.id.equipBtn);
-						temp.setText(itemNames[v.getId()]);
+						String itemName= itemNames[v.getId()];
+						InventoryItem item= items.get(itemName);
+						UsableItem itemToUse= (UsableItem)(item.getItem());
+						itemToUse.UseItem(pc);
+						
+						if(items.containsKey(itemName)){ descriptions[v.getId()].setText(item.toString()); }
+						else{ listLayout.removeView(rows[v.getId()]); }
 					}
 				});
-			}// temporary
-			//else{ useBtn.setTextColor(getResources().getColor(R.color.textColorSecondary)); }
+			}
+			// temporary
+			else{ useBtn.setTextColor(getResources().getColor(R.color.textColorSecondary)); }
 			
+			rows[i]= row;
+			descriptions[i]= itemInfo;
 			row.addView(useBtn);
 			
-			itemNames[i]= item.getName();
+			itemNames[i]= item.getItem().getKey();
 			i++;
 			listLayout.addView(row);
 		}
 	}
 	
-	public void toMain(View view){
-		Intent intent= new Intent(this, MainScreen.class);
+	public void toMain(View v){
+		Intent intent= new Intent(this, ExplorationScreenActivity.class);
 		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, id);
 		startActivity(intent);
 	}
 	
-	public void equipView(View view){
-		
+	public void equipView(View v){
+		Intent intent= new Intent(this, EquipScreenActivity.class);
+		intent.putExtra(SavedGamesDisplay.EXTRA_MESSAGE_ID, id);
+		startActivity(intent);
 	}
 }
